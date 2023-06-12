@@ -29,10 +29,33 @@ body {
   height: 100%;
   margin: 0px;
   border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.sidebar img {
+  margin-top: 56px;
+  width: 167px;
+  height: 49px;
 }
 
 .main {
   width: 77%;
   height: 100%;
   margin: 0px;
+}
+
+.userprofile {
+  display: flex;
+  align-items: center;
+  height: auto;
+  justify-content: space-around;
+}
+
+.userprofile img {
+  margin: 0px;
+  width: 60px;
+  height: 60px;
 }
