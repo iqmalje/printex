@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sign Up</title>
+        <link rel="stylesheet" href="register.css" />
+    </head>
+    <body>
+        <div class="floating-container">
+            <div class="sidebar">
+                <img src="../images/sidebar_image.png" alt="sidebar image" />
+            </div>
+            <div class="register-section">
+                <h1>Welcome to PrinTEX</h1>
+                <img
+                    class="profile-image"
+                    id="profile-image"
+                    src="../images/default.png"
+                    alt=""
+                    onclick="selectPicture()"
+                    title="Select your profile picture"
+                    style="cursor: pointer"
+                />
+
+                <form action="register.php" method="POST">
+                    <input
+                        type="file"
+                        id="selectfile"
+                        name="profilepic"
+                        style="display: none"
+                        onchange="updateImagePath(this)"
+                    />
+                    <div class="section">
+                        <p>Name</p>
+                        <input
+                            type="text"
+                            required
+                            name="fullname"
+                            placeholder="Full name"
+                            id="fullname"
+                        />
+                        <div class="row">
+                            <div class="phonenumber" style="width: 36%">
+                                <p>Phone Number</p>
+                                <input
+                                    type="text"
+                                    required
+                                    name="phonenumber"
+                                    placeholder="0105374842"
+                                    id="phonenumber"
+                                />
+                            </div>
+                            <div class="email" style="width: 59%">
+                                <p>Email</p>
+                                <input
+                                    type="text"
+                                    required
+                                    name="email"
+                                    placeholder="example@email.com"
+                                    id="email"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section address">
+                        <p>Address</p>
+                        <input
+                            type="text"
+                            required
+                            name="address1"
+                            id="address1"
+                            placeholder="Address Line 1"
+                        />
+                        <input
+                            type="text"
+                            required
+                            name="address2"
+                            id="address2"
+                            placeholder="Address Line 2"
+                        />
+                        <div class="row">
+                            <input
+                                type="text"
+                                required
+                                name="state"
+                                id="state"
+                                placeholder="Johor"
+                                style="width: 50%"
+                            />
+                            <input
+                                type="text"
+                                required
+                                name="postcode"
+                                id="postcode"
+                                placeholder="81000"
+                                style="width: 31%"
+                            />
+                        </div>
+                    </div>
+                    <div class="section">
+                        <table>
+                            <tr>
+                                <th>Password</th>
+                                <th>Confirm password</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        id="password"
+                                        placeholder="Password"
+                                    />
+                                </td>
+                                <td>
+                                    <input
+                                        type="password"
+                                        name="confirmpassword"
+                                        id="confirmpassword"
+                                        placeholder="Confirm password"
+                                    />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <input
+                        type="button"
+                        value="Register"
+                        onclick="submitForm()"
+                    />
+                    <input type="submit" style="display: none" id="submit" />
+                </form>
+            </div>
+        </div>
+        <script src="register.js"></script>
+    </body>
+</html>
