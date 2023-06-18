@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+    font-family: "Poppins";
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #d9d9d9;
+}
+
+.floating-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    width: 70%;
+    height: 87%;
+    background-color: white;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+}
+
+.sidebar {
+    height: 100%;
+    aspect-ratio: 424 / 887;
+}
+
+.sidebar img {
+    width: 100%;
+    height: 100%;
+}
+
+.signin-section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.email, .password {
+    background-color: #f0efef;
+    border-radius: 10px;
+    margin: 0;
+    width: 60%;
+    height: 40px;
+    padding-left: 10px;
+    border: none;
+
+}
+
+h1 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    text-align: center;
+    color: #000000;
+    padding-bottom: 5%;
+}
+
+p {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    padding-top: 2%;
+}
+
+.forgotpassword {
+    justify-content: end;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 20px;
+    color: #000000;
+    padding-top: 0px;
+    padding-bottom: 4%;
+    cursor: pointer;
+}
+
+.signup {
+    justify-content: center;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    color: #000000;
+    cursor: pointer;
+}
+
+.login {
+    width: 60%;
+    height: 40px;
+    background: #1957AB;
+    border-radius: 10px;
+    border: 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.login:hover {
+    background-color: red;
+    box-shadow:  0 5px #666;;
+    transform: translateZ(4px);
+}
