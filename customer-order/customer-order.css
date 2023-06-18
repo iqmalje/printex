@@ -220,8 +220,21 @@ nav ul li {
     border-radius: 10px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
     text-align: center;
+    color: #808080;
 }
+
+.grid-order:hover {
+    background-color: #1957AB;
+    color: #FFFFFF;
+}
+
 
 h1 {
     font-family: 'Poppins';
@@ -243,21 +256,6 @@ h2 {
     color: #000000;
 }
 
-.content-order {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    text-align: center;
-    color: #808080;
-    padding: 5px;
-}
-
 .order-copies, .order-papersize {
     padding-top: 3%;
     display: flex;
@@ -265,6 +263,7 @@ h2 {
     justify-content: start;
     align-items: center;
 }
+
 
 .order-copies-input, .order-papersize-input {
     margin-left: 6%;
@@ -275,6 +274,11 @@ h2 {
     border-radius: 10px;
     border-color: #F0EFEF;
     border-width: 2px;
+}
+
+.order-copies-input:hover, .order-papersize-input:hover {
+    background-color: #1957AB;
+    color: white;
 }
 
 .remark-textarea {
@@ -308,6 +312,11 @@ h2 {
     border-radius: 10px;
     border: 0px;
     margin-bottom: 10%;
+    cursor: pointer;
+}
+
+.done-order:hover {
+    background-color: green;
 }
 
 .headerdelivery {
@@ -315,6 +324,18 @@ h2 {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+.editSP {
+    width: 12%;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.editSP:hover {
+    background-color: #000000;
+    color: white;
 }
 
 .row-SPinfo {
@@ -474,6 +495,11 @@ h2 {
     line-height: 30px;
     color: #FFFFFF;
     border: 0px;
+    cursor: pointer;
+}
+
+.checkout-order:hover {
+    background-color: green;
 }
 
 .checkoutsection {
