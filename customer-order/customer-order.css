@@ -46,16 +46,16 @@ nav ul li {
 .becomePrinTEXer {
     width: 250px;
     height: 40px;
-    background: #D9D9D9;
+    background: #d9d9d9;
     border-radius: 25px;
     border: 0px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 30px;
     text-align: center;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .profile {
@@ -75,7 +75,8 @@ nav ul li {
 .grid-item {
     height: 120px;
     width: 120px;
-    background: #1957AB;
+    background: #d9d9d9;
+    cursor: pointer;
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -95,13 +96,13 @@ nav ul li {
 
 .grid-text {
     padding-top: 5px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 30px;
     text-align: center;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .column-sectioninfo {
@@ -125,7 +126,7 @@ nav ul li {
 
 .section-text {
     padding-left: 5px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -144,7 +145,7 @@ nav ul li {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: #FAFAFA;
+    background: #fafafa;
     border: 2px solid #808080;
     border-radius: 20px;
     width: 34%;
@@ -155,16 +156,15 @@ nav ul li {
 .inner-column-order1 {
     margin: 5%;
     height: 100%;
-
 }
 
 .uploadfile {
     width: 100%;
     height: 8%;
-    background: #FFFFFF;
-    border: 1px dashed #D9D9D9;
+    background: #ffffff;
+    border: 1px dashed #d9d9d9;
     border-radius: 15px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -184,11 +184,11 @@ nav ul li {
 
 .column-order2-suborder1 {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: start;
     height: 20%;
     padding: 7%;
-    background: #FAFAFA;
+    background: #fafafa;
     border: 2px solid #808080;
     border-radius: 20px;
 }
@@ -197,7 +197,7 @@ nav ul li {
     display: flex;
     flex-direction: column;
     justify-content: start;
-    background: #FAFAFA;
+    background: #fafafa;
     border: 2px solid #808080;
     border-radius: 20px;
     height: 40%;
@@ -216,28 +216,28 @@ nav ul li {
 .grid-order {
     height: 100px;
     width: 100px;
-    background: #F0EFEF;
+    background: #f0efef;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
     text-align: center;
+    cursor: pointer;
     color: #808080;
 }
 
 .grid-order:hover {
-    background-color: #1957AB;
-    color: #FFFFFF;
+    background-color: #1957ab;
+    color: #ffffff;
 }
 
-
 h1 {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
@@ -248,7 +248,7 @@ h1 {
 h2 {
     padding-top: 3%;
     padding-bottom: 3%;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -256,7 +256,8 @@ h2 {
     color: #000000;
 }
 
-.order-copies, .order-papersize {
+.order-copies,
+.order-papersize {
     padding-top: 3%;
     display: flex;
     flex-direction: row;
@@ -264,28 +265,29 @@ h2 {
     align-items: center;
 }
 
-
-.order-copies-input, .order-papersize-input {
+.order-copies-input,
+.order-papersize-input {
     margin-left: 6%;
     text-align: center;
     width: 100px;
     height: 28px;
-    background: #F0EFEF;
+    background: #f0efef;
     border-radius: 10px;
-    border-color: #F0EFEF;
+    border-color: #f0efef;
     border-width: 2px;
 }
 
-.order-copies-input:hover, .order-papersize-input:hover {
-    background-color: #1957AB;
+.order-copies-input:hover,
+.order-papersize-input:hover {
+    background-color: #1957ab;
     color: white;
 }
 
 .remark-textarea {
     resize: none;
-    background: #F0F0F0;
+    background: #f0f0f0;
     border-radius: 10px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: italic;
     font-weight: 400;
     font-size: 14px;
@@ -302,13 +304,13 @@ h2 {
     margin: 3%;
     width: 50%;
     height: 60px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
     line-height: 30px;
-    color: #FFFFFF;
-    background-color: #1957AB;
+    color: #ffffff;
+    background-color: #1957ab;
     border-radius: 10px;
     border: 0px;
     margin-bottom: 10%;
@@ -354,7 +356,7 @@ h2 {
 }
 
 .SPname {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
@@ -363,7 +365,7 @@ h2 {
 }
 
 .SPphone {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -377,7 +379,7 @@ h2 {
 }
 
 .type-deliveryinfo {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -386,7 +388,7 @@ h2 {
 }
 
 .content-deliveryinfo {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -395,11 +397,11 @@ h2 {
 }
 
 .deliveryinfobtn {
-    background: #FFFFFF;
+    background: #ffffff;
     border: 1px solid #808080;
     border-radius: 10px;
     height: 20%;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -411,7 +413,7 @@ h2 {
 }
 
 .container-orderdetails {
-    background: #FFFFFF;
+    background: #ffffff;
     border: 1px solid #808080;
     border-radius: 10px;
     padding: 3%;
@@ -419,17 +421,16 @@ h2 {
 }
 
 .title-order {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
     line-height: 20px;
     color: #808080;
-
 }
 
 .details-order {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -443,11 +444,13 @@ h2 {
     padding-bottom: 5%;
 }
 
-.box-totalpages, .box-pricepersheet, .totalprice {
-    background: #FFFFFF;
+.box-totalpages,
+.box-pricepersheet,
+.totalprice {
+    background: #ffffff;
     border: 1px solid #808080;
     border-radius: 10px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
@@ -457,10 +460,11 @@ h2 {
     width: 14%;
 }
 
-.timessign, .equalsign {
+.timessign,
+.equalsign {
     width: 7%;
     text-align: center;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
@@ -469,7 +473,7 @@ h2 {
 }
 
 .tagorder {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
@@ -486,14 +490,14 @@ h2 {
 .checkout-order {
     width: 80%;
     height: 50px;
-    background: #1957AB;
+    background: #1957ab;
     border-radius: 10px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
     line-height: 30px;
-    color: #FFFFFF;
+    color: #ffffff;
     border: 0px;
     cursor: pointer;
 }
@@ -507,4 +511,9 @@ h2 {
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+.selected {
+    background-color: #1957ab;
+    color: white;
 }
