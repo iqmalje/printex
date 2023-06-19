@@ -114,9 +114,14 @@
                             <li id="profile-button" class="section new focus">
                                 Profile
                             </li>
-                            <li id="service-button" class="section all">
+                            <form action="SP settings - Service.php" method="post">
+                                <input type="hidden" name="UserID" value="<?= $UserID ?> ">
+                                <input type="submit" style="display: none;" id="servicepagesubmit">
+                            </form>
+                            <li id="service-button" class="section all" onclick="document.getElementById('servicepagesubmit').click()">
                                 Service
                             </li>
+                            
                         </ul>
                     </div>
                     <hr
@@ -141,87 +146,96 @@
                                 <div class="detailTitle">
                                     <p>Email</p>
                                 </div>
-                                <input
-                                    type="email"
-                                    placeholder="Email"
-                                    class="email"
-                                    value="<?= $row['email'] ?>"
-                                    required=""
-                                />
-                                <!-- name -->
-                                <div class="profileDetail-title2">
-                                    <div class="detailTitle">
-                                        <p>Name</p>
+                                <form action="update_info.php" method="POST">
+                                    
+                                    <input type="hidden" name="UserID" value="<?= $UserID ?>" />
+
+                                    <input
+                                        type="email"
+                                        placeholder="Email"
+                                        name="email"
+                                        class="email"
+                                        value="<?= $row['email'] ?>"
+                                        required=""
+                                    />
+                                    <!-- name -->
+                                    <div class="profileDetail-title2">
+                                        <div class="detailTitle">
+                                            <p>Name</p>
+                                        </div>
+                                        <div class="edit">
+                                            <p>Edit</p>
+                                        </div>
                                     </div>
-                                    <div class="edit">
-                                        <p>Edit</p>
-                                    </div>
-                                </div>
-                                <input
-                                    type="text"
-                                    placeholder="Name"
-                                    class="name"
-                                    value="<?= $row['fullname'] ?>"
-                                    pattern="[A-Za-z\s]+"
-                                    required=""
-                                />
-                                <!-- phone no -->
-                                <div class="profileDetail-title2">
-                                    <div class="detailTitle">
-                                        <p>Phone Number</p>
-                                    </div>
-                                    <div class="edit">
-                                        <p>Edit</p>
-                                    </div>
-                                </div>
-                                <input
-                                    type="tel"
-                                    placeholder="Phone Number"
-                                    class="phoneNo"
-                                    value="<?= $row['phoneNo'] ?>"
-                                    pattern="\d{3}-\d{3}-\d{4}"
-                                    required=""
-                                />
-                                <!-- address -->
-                                <div class="profileDetail-title2">
-                                    <div class="detailTitle">
-                                        <p>Address</p>
-                                    </div>
-                                    <div class="edit">
-                                        <p>Edit</p>
-                                    </div>
-                                </div>
-                                <input
-                                    type="text"
-                                    placeholder="Address Line 1"
-                                    value="<?= $row['address1'] ?>"
-                                    class="addressLine1"
-                                />
-                                <input
-                                    type="text"
-                                    placeholder="Address Line 2 (optional)"
-                                    value="<?= $row['address2'] ?>"
-                                    class="addressLine2"
-                                />
-                                <div class="addressLine3">
                                     <input
                                         type="text"
-                                        placeholder="State"
-                                        value="<?= $row['state'] ?>"
-                                        class="state-input"
+                                        placeholder="Name"
+                                        class="name"
+                                        name="fullname"
+                                        value="<?= $row['fullname'] ?>"
+                                        pattern="[A-Za-z\s]+"
+                                        required=""
+                                    />
+                                    <!-- phone no -->
+                                    <div class="profileDetail-title2">
+                                        <div class="detailTitle">
+                                            <p>Phone Number</p>
+                                        </div>
+                                        <div class="edit">
+                                            <p>Edit</p>
+                                        </div>
+                                    </div>
+                                    <input
+                                        type="text"
+                                        placeholder="Phone Number"
+                                        class="phoneNo"
+                                        name="phoneNo"
+                                        value="<?= $row['phoneNo'] ?>"
+                                        required=""
+                                    />
+                                    <!-- address -->
+                                    <div class="profileDetail-title2">
+                                        <div class="detailTitle">
+                                            <p>Address</p>
+                                        </div>
+                                        <div class="edit">
+                                            <p>Edit</p>
+                                        </div>
+                                    </div>
+                                    <input
+                                        type="text"
+                                        placeholder="Address Line 1"
+                                        value="<?= $row['address1'] ?>"
+                                        name="address1"
+                                        class="addressLine1"
                                     />
                                     <input
-                                        type="number"
-                                        placeholder="Postcode"
-                                        value="<?= $row['postcode'] ?>"
-                                        class="postcode-input"
+                                        type="text"
+                                        placeholder="Address Line 2 (optional)"
+                                        value="<?= $row['address2'] ?>"
+                                        name="address2"
+                                        class="addressLine2"
                                     />
-                                </div>
-                                <div class="save">
-                                    <button type="button" class="save-button">
-                                        Save
-                                    </button>
-                                </div>
+                                    <div class="addressLine3">
+                                        <input
+                                            type="text"
+                                            placeholder="State"
+                                            value="<?= $row['state'] ?>"
+                                            name="state"
+                                            class="state-input"
+                                        />
+                                        <input
+                                            type="number"
+                                            placeholder="Postcode"
+                                            value="<?= $row['postcode'] ?>"
+                                            name="postcode"
+                                            class="postcode-input"
+                                        />
+                                    </div>
+                                    <div class="save">
+                                        <input type="submit" class="save-button" value="Save" />
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
