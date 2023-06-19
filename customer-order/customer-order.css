@@ -58,9 +58,11 @@ nav ul li {
     color: #ffffff;
 }
 
-.profile {
+.profilepic {
     width: 50px;
     cursor: pointer;
+    clip-path: circle();
+    height: 100%;
 }
 
 .grid-container {

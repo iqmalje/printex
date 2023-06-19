@@ -1,3 +1,13 @@
+<?php
+    $UserID = $_POST['UserID'];
+    //FETCH ASSOCIATE ACCOUNT
+
+    require_once("../config.php");
+    $sql = "SELECT * FROM accounts where UserID=$UserID";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -20,9 +30,10 @@
                     </li>
                     <li>
                         <img
-                            src="../images/profile.png"
+                            src="..<?= $row['profilePic'] ?>"
                             alt="Profile_icon"
-                            class="profile"
+                            class="profilepic"
+                            style="width: 50px; cursor: pointer; clip-path: circle(); height: 100%;"
                         />
                     </li>
                 </ul>
