@@ -202,8 +202,38 @@
                                             <td>12.04.2023</td>
                                             <td>
                                                 <div class='row'>
-                                                    <div class='status completed'>
+                                                    <div class='status delivering'>
                                                         Delivering
+                                                    </div>
+                                                    <img
+                                                        src='../images/arrow.png'
+                                                        alt=''
+                                                        srcset=''
+                                                        width='18'
+                                                        class='arrow'
+                                                        height='18'
+                                                        onclick='openOrderDetail($rowOrders[OrderID])'
+                                                    />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        ";
+                                    }
+                                    else if ($rowOrders['status'] == "COMPLETED")
+                                    {
+                                        echo "
+                                        
+                                        <tr>
+                                            <td>$rowOrders[OrderID]</td>
+                                            <td>$rowOrders[fullname]</td>
+                                            <td>Walk-in</td>
+                                            <td>RM$price</td>
+                                            <td>12.04.2023</td>
+                                            <td>12.04.2023</td>
+                                            <td>
+                                                <div class='row'>
+                                                    <div class='status completed'>
+                                                        Completed
                                                     </div>
                                                     <img
                                                         src='../images/arrow.png'

@@ -37,16 +37,18 @@
             <nav>
                 <ul>
                     <li>
-                        <button type="becomePrinTEXer" class="becomePrinTEXer">
+                        
                             <?php
 
                             $sql = "SELECT * FROM SPInfos WHERE UserID=$UserID";
                             $result = mysqli_query($conn,$sql);
-                            if(mysqli_num_rows($result) > 0) echo 'Go to dashboard';
-                            else echo 'Become PrinTEXer';
+                            if(mysqli_num_rows($result) > 0) 
+                                echo "<button type='becomePrinTEXer' onclick='window.location.href = \"http://localhost/printex/order_pages/orderpage.php\"' class='becomePrinTEXer'>Go to dashboard</button>";
+                            else 
+                                echo "<button type='becomePrinTEXer' onclick='window.location.href = \"http://localhost/printex/SP Settings/SP settings - Service.php\"' class='becomePrinTEXer'>Become PrinTEXer</button>";
 
                             ?>
-                        </button>
+                        
                     </li>
                     <li>
                         <img

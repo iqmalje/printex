@@ -158,7 +158,9 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <button class="back">
+                                    <button 
+                                    onclick="window.location.href = 'http:/\/localhost/printex/order_pages/orderpage_all.php'"
+                                    class="back">
                                         <div class="button-content">
                                             <img
                                                 src="../images/white-arrow.png"
@@ -234,10 +236,16 @@
                                             placeholder="Drop any message to your customer"
                                         ></textarea>
                                         <div class="row-button">
-                                            <button class="cancel">
+                                            <button class="cancel"
+                                            
+                                            onclick="window.location.href = 'http:/\/localhost/printex/order_pages/orderpage_all.php'">
                                                 Cancel
                                             </button>
-                                            <button class="complete">
+                                            <form action="update_completed.php" method="post">
+                                                <input type="hidden" name="OrderID" value="<?=$OrderID ?>">
+                                                <input type="submit" value="" style="display:none;" id="submitcompleted">
+                                            </form>
+                                            <button class="complete" onclick="document.getElementById('submitcompleted').click()">
                                                 Complete
                                             </button>
                                         </div>

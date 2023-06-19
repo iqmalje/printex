@@ -251,7 +251,16 @@
                                                 </div>
                                                 <div class="file-row">
                                                     Number of pages:
-                                                    <p><b>1</b></p>
+                                                    <p><b>
+                                                        <?php
+                                                            //kinda overpowered to fetch page number from database, but its 5 AM..
+                                                            $sql = "SELECT totalPage FROM files WHERE FileID=$rowOrder[FileID]";
+                                                            $resultfile = mysqli_query($conn,$sql);
+
+                                                            echo mysqli_fetch_assoc($resultfile)['totalPage'];
+
+                                                        ?>
+                                                    </b></p>
                                                 </div>
                                             </div>
                                         </div>

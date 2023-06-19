@@ -5,7 +5,7 @@
     $OrderID = $_POST['OrderID'];
     $deliveredTime = $_POST['deliveredTime'];
 
-    $sql = "UPDATE Orders SET deliveredTime='$deliveredTime' WHERE OrderID=$OrderID";
+    $sql = "UPDATE Orders SET deliveredTime='$deliveredTime', status='DELIVERING' WHERE OrderID=$OrderID";
 
     mysqli_query($conn, $sql);
 

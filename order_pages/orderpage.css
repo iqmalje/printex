@@ -178,8 +178,13 @@ th {
 .preparing {
     background-color: #ff9533;
 }
-.completed {
+
+.delivering {
     background-color: #4ca876;
+}
+
+.completed {
+    background-color: #1957ab;
 }
 
 .canceled {
@@ -229,4 +234,3 @@ th {
     width: 60px;
     height: 60px;
 }
-
