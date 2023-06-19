@@ -38,9 +38,13 @@
                             onclick="showDropdown()"
                         />
                         <div class="dropdownmenu" id="dropdownmenu">
-                            <a href="#">Settings</a>
+                            <a onclick="openSettingsPage()">Settings</a>
                             <a href="#">Log out</a>
                         </div>
+                        <form action="../SP Settings/SP settings.php" method="POST"> <!-- SEND TO SETTINGS PAGE -->
+                            <input type="hidden" name="UserID" value="<?= $UserID ?>" />
+                            <input type="submit" id="settingsubmit" style="display: none;"/>
+                        </form>
                     </li>
                 </ul>
             </nav>

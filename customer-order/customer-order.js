@@ -12,6 +12,10 @@ function selectFile() {
     document.getElementById("selectedfile").click();
 }
 
+function openSettingsPage() {
+    document.getElementById("settingsubmit").click();
+}
+
 function setFileDetails(element) {
     var selectedfile = element.files[0];
 

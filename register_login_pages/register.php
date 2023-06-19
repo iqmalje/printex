@@ -18,6 +18,7 @@
     if(!(array_key_exists('profilepic', $_FILES)))
     {  
         echo 'no file';
+        header("location: http://localhost/printex/register_login_pages/register.html");
     }
     else
     {   
@@ -47,6 +48,7 @@
             mysqli_query($conn, $sql);
     
             echo "Succesfully registered!";
+            header("location: http://localhost/printex/login_pages/login.html");
         }
     }
 
