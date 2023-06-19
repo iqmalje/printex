@@ -113,10 +113,10 @@
                 <div class="info-section">
                     <div class="upper-menu">
                         <ul>
-                            <li id="new-order-button" class="section new focus">
+                            <li id="new-order-button" class="section new">
                                 New Orders
                             </li>
-                            <li id="all-order-button" class="section all">
+                            <li id="all-order-button" class="section all focus">
                                 All Orders
                             </li>
                         </ul>
@@ -152,13 +152,14 @@
                                 $SPID = mysqli_fetch_assoc($resultSPID)['SPID'];
 
                                 //FETCH ORDERS (PENDING ONLY)
-                                $sqlOrders = "SELECT o.OrderID, ac.fullname, o.price FROM Orders o JOIN accounts ac ON (ac.UserID=o.UserID) WHERE status='PENDING' AND SPID=$SPID";
+                                $sqlOrders = "SELECT o.OrderID, ac.fullname, o.price FROM Orders o JOIN accounts ac ON (ac.UserID=o.UserID) WHERE SPID=$SPID";
                                 $resultOrders = mysqli_query($conn, $sqlOrders);
                                 while($rowOrders = mysqli_fetch_assoc($resultOrders))
                                 {
 
                                     $price = number_format((float)$rowOrders['price'], 2, '.', '');
                                     echo "
+                                    
                                     <tr>
                                     <td>$rowOrders[OrderID]</td>
                                     <td>$rowOrders[fullname]</td>
@@ -178,7 +179,7 @@
                                                 width='18'
                                                 class='arrow'
                                                 height='18'
-                                                onclick='openOrderDetail($rowOrders[OrderID])'
+                                                onclick='openOrderDetails($rowOrders[OrderID])'
                                             />
                                         </div>
                                     </td>
@@ -186,26 +187,24 @@
                                     ";
                                 }
                             ?>  
-
-
                             
                             <!--THIS SECTION WILL BE HIDDEN UNTIL USER ONCE TO SEE IT-->
                             <tr class="more-info"></tr>
+                            <form action="orderdetail.php" method="post">
+                                <input type="hidden"  id="OrderID" name="OrderID" value="">
+                                <input type="submit" id="submit" value="" style="display: none;">
+                            </form>
                         </table>
                     </div>
                 </div>
             </div>
-            <form action="orderdetail.php" method="post">
-                                <input type="hidden"  id="OrderID" name="OrderID" value="">
-                                <input type="submit" id="submit" value="" style="display: none;">
-                            </form>
         </div>
         <script>
             var neworderbutton = document.getElementById("new-order-button");
             var allorderbutton = document.getElementById("all-order-button");
 
-            allorderbutton.onclick = function () {
-                window.location.href = "http://localhost/printex/order_pages/orderpage_all.php"
+            neworderbutton.onclick = function () {
+                window.location.href = "http://localhost/printex/order_pages/orderpage.php"
             };
 
             

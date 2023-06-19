@@ -23,12 +23,13 @@
 
 </head>
 <body>
+
     <form action="../customer-order/customer-order.php" method="post">
         <input type="hidden" id="selectedSP" name="SPID" value="">
-        
+        <input type="hidden" id="typeOfDelivery" name="typeOfDelivery" />
         <input type="submit" style="display:none;" id="submit" value="<?= $selectedSPID ?>">
         
-    </form>
+    
     <div class="navitem">
         <a href="index.html"><img src="../images/logo.png" alt="PrinTEX_logo" class="logo"></a>
         <nav>
@@ -46,29 +47,29 @@
     </div>
 
     <h1>Please Complete Delivery Info</h1>
-
+    <script src="SPlist.js"></script>
     <div class="column-deliveryinfo">
         <div class="box-deliveryinfo">
             <p class="deliverytypetext">Type of Delivery</p>
             <div class="deliverytypebtn">
-                <button type="button" class="walkinbtn">Walk-in</button>
-                <button type="button" class="deliverbtn">Deliver</button>
+                <button type="button" id="walkin"  onclick="selectTypeOfDelivery('walkin')"class="walkinbtn">Walk-in</button>
+                <button type="button" id="deliver" onclick="selectTypeOfDelivery('deliver')" class="deliverbtn">Deliver</button>
             </div>
         </div>
 
         <div class="box-deliverydate">
             <p class="deliverytypetext">Date of Delivery</p>
-            <input type="date" class="dateselect">
+            <input type="date" class="dateselect" name="deliveryDate">
         </div>
 
         <div class="box-deliverytime">
             <p class="deliverytypetext">Time of Delivery</p>
-            <input type="time" class="timeselect">
+            <input type="time" class="timeselect" name="deliveryTime">
         </div>
-
+        </form>
         <div class="box-deliverylocation">
             <p class="deliverytypetext">Location</p>
-            <textarea class="locationtext" placeholder="Address"><?= $rowProfile['address1'] . ' ' . $rowProfile['address2'] . ' ' . $rowProfile['postcode'] . ' ' . $rowProfile['state'] ?></textarea>
+            <textarea readonly class="locationtext" placeholder="Address"><?= $rowProfile['address1'] . ' ' . $rowProfile['address2'] . ' ' . $rowProfile['postcode'] . ' ' . $rowProfile['state'] ?></textarea>
         </div>
 
     </div>
@@ -114,7 +115,7 @@
 
     </div>
 
-    <script src="SPlist.js"></script>
+    
     
 </body>
 </html>

@@ -1,4 +1,5 @@
 var dropdownshown = false;
+var totalpage = 0;
 
 function showDropdown() {
     if (!dropdownshown) {
@@ -27,6 +28,7 @@ function setFileDetails(element) {
     reader.onloadend = function () {
         var count = reader.result.match(/\/Type[\s]*\/Page[^s]/g).length;
         console.log("Number of Pages:", count);
+        document.getElementById("totalpage").value = count;
         document.getElementById("totalpages").innerHTML = count;
         document.getElementById("uploadfile").innerHTML = selectedfile.name;
         document.getElementById("uploadfile").style.color = "black";
@@ -37,6 +39,7 @@ function setFileDetails(element) {
         document.getElementById(
             "totalpricefee"
         ).innerHTML = `RM${totalprice_servicefee.toFixed(2)}`;
+        document.getElementById("price").value = totalprice_servicefee;
     };
 
     reader.readAsBinaryString(selectedfile);
@@ -147,15 +150,18 @@ function setPrintingLayout(setting) {
 function setCopies(element) {
     console.log(element.value);
     document.getElementById("filecopies").innerHTML = `x ${element.value}`;
-    document.getElementById("selectcopies").value = setting;
+    document.getElementById("selectcopies").value = element.value;
 }
 
 function setPaperSize(element) {
     document.getElementById("filesize").innerHTML = element.value;
-    document.getElementById("selectsize").value = setting;
+    document.getElementById("selectsize").value = element.value;
 }
 
 function submit() {
+    document.getElementById("remark").value =
+        document.getElementById("text-remark").value;
+
     document.getElementById("submit").click();
 }
 

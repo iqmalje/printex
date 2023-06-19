@@ -1,3 +1,27 @@
+<?php
+    $OrderID = $_POST['OrderID'];
+    session_start();
+    $UserID = $_SESSION['UserID'];
+
+
+    require_once('../config.php');
+    $sqlOrder = "SELECT * FROM Orders WHERE OrderID=$OrderID";
+    $resultOrder = mysqli_query($conn, $sqlOrder);
+    $rowOrder = mysqli_fetch_assoc($resultOrder);
+
+    $sqlUser = "SELECT ac.profilePic, ac.phoneNo,ac.fullname, ac.email, ad.address1, ad.address2, ad.postcode, ad.state
+                FROM accounts ac JOIN addresses ad ON (ac.UserID = ad.UserId) WHERE ac.UserID=$rowOrder[UserID]";
+
+    $resultUser = mysqli_query($conn, $sqlUser);
+    $rowUser = mysqli_fetch_assoc($resultUser);
+
+    $sqlFile = "SELECT f.filename, f.filepath, f.totalPage FROM files f JOIN Orders o ON (f.OrderID=o.OrderID) WHERE o.OrderID=$OrderID";
+    $resultFile = mysqli_query($conn, $sqlFile);
+    $rowFile = mysqli_fetch_assoc($resultFile);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -117,20 +141,20 @@
                             </p>
                         </div>
                         <div class="main-data">
-                            <div class="column">
+                            <div class="column-data">
                                 <div class="profile">
                                     <div class="profile-info">
                                         <img
-                                            src="../images/profile/13.png"
+                                            src="..<?= $rowUser['profilePic'] ?>"
                                             alt=""
                                             class="profile-image"
                                             srcset=""
                                         />
                                         <div class="profile-credentials">
-                                            <h3>Olivera nules</h3>
+                                            <h3><?= $rowUser['fullname'] ?></h3>
                                             <p>
-                                                oliveranules@gmail.com,
-                                                0147582457
+                                            <?= $rowUser['email'] ?>,
+                                            <?= $rowUser['phoneNo'] ?>
                                             </p>
                                         </div>
                                     </div>
@@ -151,42 +175,58 @@
                                             <tr>
                                                 <td>Location</td>
                                                 <td>
-                                                    MA1, KTDI UTM, 813100
-                                                    Skudai, Johor
+                                                <?= "$rowUser[address1] $rowUser[address2] $rowUser[postcode] $rowUser[state]" ?>
+                                                    
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>Order ID</td>
-                                                <td>0001</td>
+                                                <td><?= $rowOrder['OrderID'] ?></td>
                                             </tr>
                                             <tr>
                                                 <td>Delivery Date</td>
-                                                <td>12.04.2023</td>
+                                                <td><?= $rowOrder['deliveryDate'] ?></td>
                                             </tr>
                                             <tr>
                                                 <td>Delivery Time</td>
-                                                <td>12.00 AM</td>
+                                                <td><?= $rowOrder['deliveryTime'] ?></td>
                                             </tr>
                                             <tr>
                                                 <td>Delivery Type</td>
-                                                <td>Walk-In</td>
+                                                <td><?php
+                                                    if($rowOrder['typeOfDelivery'] == 'walkin')
+                                                        echo 'Walk-In';
+                                                    else
+                                                        echo 'Delivery';
+                                                ?></td>
                                             </tr>
                                             <tr>
                                                 <td>Price</td>
-                                                <td>RM 2.10</td>
+                                                <td>RM <?= number_format((float)$rowOrder['price'], 2, '.', ''); ?></td>
                                             </tr>
                                         </table>
-                                        <div class="time-row">
-                                            Estimated Time Finish
+                                        <div class="time-row" style="margin-top: 30px; margin-bottom: 10px">
+                                            Estimated Delivery Time
+                                            <form action="update_delivered.php" method="post" style="display: flex;">
                                             <input
                                                 type="time"
-                                                name="estimated-time"
+                                                name="deliveredTime"
                                                 class="estimated-time"
+                                                value="<?php
+                                                    if($rowOrder['deliveredTime'] != null)
+                                                    {
+                                                        echo $rowOrder['deliveredTime'];
+                                                    }
+                                                    else echo '';
+                                                ?>"
                                                 id="estimated-time"
                                             />
-                                            <button class="deliver-button">
-                                                Deliver
-                                            </button>
+                                            <input type="hidden" name="OrderID" value="<?= $OrderID ?>">
+                                          
+
+                                            <input type="submit" value="Update" class="deliver-button">
+                                            </form>
+                                            
                                         </div>
                                         <textarea
                                             name=""
@@ -207,36 +247,38 @@
                                         <div class="file-information">
                                             <div class="file-row">
                                                 File name:
-                                                <b> URD TEAM 3 ver 1.0.pdf</b>
+                                                <b> <?= $rowFile['filename'] ?></b>
                                             </div>
-                                            <div class="file-row">
-                                                File name:
-                                                <b> URD TEAM 3 ver 1.0.pdf</b>
-                                            </div>
+                                            
                                             <div class="file-row">
                                                 Color:
-                                                <b> Black and White</b>
+                                                <b> <?php 
+                                                    if($rowOrder['color'] == 'BW')
+                                                        echo "Black & White";
+                                                    else 
+                                                        echo "Color";
+                                                ?></b>
                                             </div>
                                             <div class="file-row">
-                                                Printing side:
-                                                <b> Single</b>
+                                                Printing side: 
+                                                <b><?= $rowOrder['side'] ?></b>
                                             </div>
                                             <div class="file-row">
-                                                Page per sheet:
-                                                <b> 1 in 1</b>
+                                                Page per sheet: 
+                                                <b> <?= $rowOrder['pagepersheet'] ?></b>
                                             </div>
                                             <div class="file-row">
-                                                Printing layout:
-                                                <b> Portrait</b>
+                                                Printing layout: 
+                                                <b> <?= $rowOrder['layout'] ?></b>
                                             </div>
                                             <div class="file-row">
-                                                Paper size: <b> A4</b>
+                                                Paper size: <b> <?= $rowOrder['paperSize'] ?></b>
                                             </div>
                                             <div class="file-row">
-                                                Copies: <b> 1</b>
+                                                Copies: <b> <?= $rowOrder['copies'] ?></b>
                                             </div>
                                             <div class="file-row">
-                                                Number of pages: <b> 20</b>
+                                                Number of pages: <b> <?= $rowFile['totalPage'] ?></b>
                                             </div>
                                         </div>
 

@@ -203,7 +203,7 @@ th {
     height: 19px;
     margin-right: 6px;
     cursor: pointer;
-    transition: all 1s;
+    transition: all 0.1s;
 }
 .arrow:hover {
     width: 25px;
@@ -229,3 +229,4 @@ th {
     width: 60px;
     height: 60px;
 }
+
