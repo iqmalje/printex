@@ -158,3 +158,8 @@ function setPaperSize(element) {
 function submit() {
     document.getElementById("submit").click();
 }
+
+function redirectToSPLIST() {
+    window.location.href =
+        "http://localhost/printex/SPlist_pages/SPlist-order.php";
+}

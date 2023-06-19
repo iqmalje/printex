@@ -1,7 +1,8 @@
 <?php
     require_once("../config.php");
 
-    $UserID = $_POST['UserID'];
+    session_start();
+    $UserID = $_SESSION['UserID'];
     $email = $_POST['email'];
     $fullname = $_POST['fullname'];
     $phoneNo = $_POST['phoneNo'];
@@ -15,7 +16,7 @@
     $sql = "UPDATE accounts SET email='$email', fullname='$fullname', phoneNo='$phoneNo' WHERE UserID=$UserID";
     mysqli_query($conn, $sql);
 
-    $sql = "UPDATE addresses SET address1='$email', address2='$fullname', state='$phoneNo', postcode='$postcode' WHERE UserID=$UserID";
+    $sql = "UPDATE addresses SET address1='$address1', address2='$address2', state='$state', postcode='$postcode' WHERE UserID=$UserID";
     mysqli_query($conn, $sql);
 
 

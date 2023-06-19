@@ -2,7 +2,8 @@
 
     require_once("../config.php");
     //fetch user id
-    $UserID = $_POST['UserID'];
+    session_start();
+    $UserID = $_SESSION['UserID'];
     $sql = "SELECT a.profilePic, a.fullname from accounts a where a.UserID=$UserID";
     $sqlPRICE = "SELECT sp.BWprice, sp.colorPrice, sp.directDeliveryFee, sp.sizeAvailable FROM SPInfos sp WHERE sp.UserID=$UserID";
     $result = mysqli_query($conn, $sql);
@@ -60,7 +61,7 @@
                         <img class="icon" src="../images/icon-settings.png" style="width: 30px; height: 30px; margin: 0px; margin-right: 20px;" alt="icon-settings">
                         <p>Settings</p>
                     </div>
-                    <p class="redirect-home">Return to home</p>
+                    <p class="redirect-home" onclick="window.location.href = 'http:/\/localhost/printex/customer-order/customer-order.php'">Return to home</p>
                 </div>
             </div>
             <div class="main">
@@ -72,7 +73,6 @@
                     <div class="upper-menu">
                         <ul>
                             <form action="SP settings.php" method="post">
-                                <input type="hidden" name="UserID" value="<?= $UserID ?>">
                                 <input type="submit" style="display: none;" id="clickprofile">
                             </form>
                             <li id="profile-button" onclick="document.getElementById('clickprofile').click()" class="section all">Profile</li>
@@ -87,7 +87,6 @@
                         Set you own printing price. The system will follow the price below if the customer selected you as the service provider.
                     </div>
                     <form action="create_sp.php" method="post">
-                        <input type="hidden" name="UserID" value="<?= $UserID ?>">
                         <div class="print-categories">
                             <div class="printing-setting">
                                 Black & White Pricing (per sheet)

@@ -1,11 +1,22 @@
 <?php
-    $UserID = $_POST['UserID'];
+
+    session_start();
+
+    $UserID = $_SESSION['UserID'];
     //FETCH ASSOCIATE ACCOUNT
 
     require_once("../config.php");
     $sql = "SELECT * FROM accounts where UserID=$UserID";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
+
+    if(isset($_POST['SPID'])){
+        echo 'ADA';
+    }
+
+
+
+  
 ?>
 
 <!DOCTYPE html>
@@ -39,10 +50,9 @@
                         />
                         <div class="dropdownmenu" id="dropdownmenu">
                             <a onclick="openSettingsPage()">Settings</a>
-                            <a href="#">Log out</a>
+                            <a onclick="window.location.href='http:/\/localhost/printex/session_destroy.php'"href="#">Log out</a>
                         </div>
                         <form action="../SP Settings/SP settings.php" method="POST"> <!-- SEND TO SETTINGS PAGE -->
-                            <input type="hidden" name="UserID" value="<?= $UserID ?>" />
                             <input type="submit" id="settingsubmit" style="display: none;"/>
                         </form>
                     </li>
@@ -245,46 +255,68 @@
                         <p class="editSP">Edit</p>
                     </div>
 
-                    <div class="SPInfo" style="display: none;">
-                        <div class="row-SPinfo">
-                            <img
-                                src="../images/profile/Ellipse 1.png"
-                                alt="SP profile"
-                            />
-                            <div class="column-SPinfo">
-                                <p class="SPname">
-                                    Fikri Akmal Aizuddin Bin Bahrim
-                                </p>
-                                <p class="SPphone">013 752 6538</p>
+                    <?php
+                        if(isset($_POST['SPID']))
+                        {
+                            $SPID = $_POST['SPID'];
+                            $sqlSPID = "SELECT ac.profilePic, ac.phoneNo, ac.fullname FROM accounts ac JOIN SPInfos sp ON (ac.UserID=sp.UserID) WHERE sp.SPID=$SPID";
+                            $resultSPID = mysqli_query($conn, $sqlSPID);
+                            $rowSPID = mysqli_fetch_assoc($resultSPID);
+                            echo "<div class='SPInfo' style='display: flex; flex-direction: column; justify-content: center;'>
+                            <div class='row-SPinfo'>
+                                <img
+                                    src='..$rowSPID[profilePic]'
+                                    width='50'
+                                    style='clip-path:circle()'
+                                    alt='SP profile'
+                                />
+                                <div class='column-SPinfo'>
+                                    <p class='SPname'>
+                                        $rowSPID[fullname]
+                                    </p>
+                                    <p class='SPphone'>$rowSPID[phoneNo]</p>
+                                </div>
                             </div>
-                        </div>
-                        <table class="table-deliveryinfo">
-                            <tr>
-                                <td class="type-deliveryinfo">Type</td>
-                                <td class="content-deliveryinfo">Walk-in</td>
-                            </tr>
-                            <tr>
-                                <td class="type-deliveryinfo">Date</td>
-                                <td class="content-deliveryinfo">13/6/2023</td>
-                            </tr>
-                            <tr>
-                                <td class="type-deliveryinfo">Time</td>
-                                <td class="content-deliveryinfo">9.00 pm</td>
-                            </tr>
-                            <tr>
-                                <td class="type-deliveryinfo">Location</td>
-                                <td class="content-deliveryinfo">
-                                    MA1, KTDI, UTM, 813100 Skudai, Johor
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="chooseSP">
-                        <button type="button" class="deliveryinfobtn">
+                            <table class='table-deliveryinfo'>
+                                <tr>
+                                    <td class='type-deliveryinfo'>Type</td>
+                                    <td class='content-deliveryinfo'>Walk-in</td>
+                                </tr>
+                                <tr>
+                                    <td class='type-deliveryinfo'>Date</td>
+                                    <td class='content-deliveryinfo'>13/6/2023</td>
+                                </tr>
+                                <tr>
+                                    <td class='type-deliveryinfo'>Time</td>
+                                    <td class='content-deliveryinfo'>9.00 pm</td>
+                                </tr>
+                                <tr>
+                                    <td class='type-deliveryinfo'>Location</td>
+                                    <td class='content-deliveryinfo'>
+                                        MA1, KTDI, UTM, 813100 Skudai, Johor
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>";
+                        }
+                        else {
+                            echo "
+                            <div class='chooseSP'>
+                        <form action='../SPlist_pages/SPlist-order.php' method='post'>
+                            <input type='hidden' name='UserID' value='<?= $UserID ?>'>
+                            <input type='submit' value='' id='chooseSP'>
+                        </form>
+                        <button type='button' class='deliveryinfobtn' onclick='redirectToSPLIST()'>
                             Click here to choose a PrinTEXer to perform your order
                         </button>
                     </div>
+                            ";
+                        }
+                    ?>
+
+                    
+
+                    
                 </div>
 
                 <div class="column-order2-suborder2">

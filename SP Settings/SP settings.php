@@ -1,7 +1,8 @@
 <?php
     require_once('../config.php');
 
-    $UserID = $_POST['UserID'];
+    session_start();
+    $UserID = $_SESSION['UserID'];
 
     $sql = "SELECT a.email, a.fullname, a.phoneNo, a.profilePic, ad.address1, ad.address2, ad.state, ad.state, ad.postcode FROM accounts a JOIN addresses ad ON (a.UserID=ad.UserID) WHERE a.UserID=$UserID";
     
@@ -90,7 +91,7 @@
                         />
                         <p>Settings</p>
                     </div>
-                    <p class="redirect-home">Return to home</p>
+                    <p class="redirect-home" onclick="window.location.href = 'http:/\/localhost/printex/customer-order/customer-order.php'">Return to home</p>
                 </div>
             </div>
             <div class="main">
@@ -115,7 +116,6 @@
                                 Profile
                             </li>
                             <form action="SP settings - Service.php" method="post">
-                                <input type="hidden" name="UserID" value="<?= $UserID ?> ">
                                 <input type="submit" style="display: none;" id="servicepagesubmit">
                             </form>
                             <li id="service-button" class="section all" onclick="document.getElementById('servicepagesubmit').click()">
@@ -148,7 +148,6 @@
                                 </div>
                                 <form action="update_info.php" method="POST">
                                     
-                                    <input type="hidden" name="UserID" value="<?= $UserID ?>" />
 
                                     <input
                                         type="email"

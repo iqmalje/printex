@@ -1,7 +1,7 @@
 <?php
     require_once("../config.php");
-
-    $UserID = $_POST['UserID'];
+    session_start();
+    $UserID = $_SESSION['UserID'];
     $sql = "SELECT SPID FROM SPInfos WHERE UserID=$UserID";
 
     $BWPrice = $_POST['BWPrice'];
