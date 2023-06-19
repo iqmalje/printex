@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Order History</title>
+        <link rel="stylesheet" href="sphistory.css" />
+    </head>
+    <body>
+        <div class="contents">
+            <div class="sidebar">
+                <div class="sidebar-contents">
+                    <img src="../images/printex_logo.png" />
+                    <div class="userprofile">
+                        <img src="../images/profile/Ellipse 1.png" />
+                        <p>Fikri Akmal Aizuddin Bin Bahrim</p>
+                    </div>
+                    <hr style="margin-top: 33px; margin-bottom: 10px" />
+                    <div class="item orderlist">
+                        <img
+                            class="icon"
+                            src="../images/icon-box.png"
+                            style="
+                                width: 30px;
+                                height: 30px;
+                                margin: 0px;
+                                margin-right: 20px;
+                            "
+                        />
+                        <p>Order list</p>
+                    </div>
+
+                    <div class="item tracking">
+                        <img
+                            class="icon"
+                            src="../images/icon-pin.png"
+                            style="
+                                width: 30px;
+                                height: 30px;
+                                margin: 0px;
+                                margin-right: 20px;
+                            "
+                        />
+                        <p>Tracking</p>
+                    </div>
+                    <div class="item history">
+                        <img
+                            class="icon"
+                            src="../images/icon-clock.png"
+                            style="
+                                width: 30px;
+                                height: 30px;
+                                margin: 0px;
+                                margin-right: 20px;
+                            "
+                        />
+                        <p>History</p>
+                    </div>
+                    <div class="item settings">
+                        <img
+                            class="icon"
+                            src="../images/icon-settings.png"
+                            style="
+                                width: 30px;
+                                height: 30px;
+                                margin: 0px;
+                                margin-right: 20px;
+                            "
+                        />
+                        <p>Settings</p>
+                    </div>
+                    <p class="redirect-home">Return to home</p>
+                </div>
+            </div>
+            <div class="main">
+                <div
+                    class="description"
+                    style="margin-top: 56px; margin-left: 69px; width: 80%"
+                >
+                    <h1>Order History</h1>
+                    <p style="margin-top: 9px; color: #808080">
+                        In the order history section, you can search and review all the orders details you have 
+                        received from customer in the past. You can view and find many information such as IDs 
+                        of all orders, customers name, price and order date. Access to this area is limited. 
+                        Only administrators and PrinTEXer can reach.
+                    </p>
+                </div>
+                <div class="info-section">
+                    <div class="upper-menu">
+                        <ul>
+                            <li class="section new focus">
+                                All History Orders
+                            </li>
+                        </ul>
+                    </div>
+                    <hr
+                        style="
+                            margin-top: 19px;
+                            margin-bottom: 33px;
+                            width: 90%;
+                        "
+                    />
+                    <input
+                        class="search-bar"
+                        type="text"
+                        placeholder="Search for order ID, customer, order status or something..."
+                    />
+                    <div class="table-section">
+                        <table style="width: 90%">
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Delivery</th>
+                                <th>Total price</th>
+                                <th>Date</th>
+                                <th>Order Status</th>
+                            </tr>
+                            <tr>
+                                <td>AK0011</td>
+                                <td>Olivera Nules</td>
+                                <td>Walk-in</td>
+                                <td>RM2.00</td>
+                                <td>12.04.2023</td>
+                                <td>
+                                    <div class="status completed">
+                                        Completed
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>AK0012</td>
+                                <td>Olivera Tules</td>
+                                <td>Walk-in</td>
+                                <td>RM4.00</td>
+                                <td>15.04.2023</td>
+                                <td>
+                                    <div class="status canceled">
+                                        Canceled
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>AK0013</td>
+                                <td>Olivera Yules</td>
+                                <td>Walk-in</td>
+                                <td>RM3.00</td>
+                                <td>16.04.2023</td>
+                                <td>
+                                    <div class="status completed">
+                                        Completed
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>AK0014</td>
+                                <td>Olivera Kules</td>
+                                <td>Walk-in</td>
+                                <td>RM5.00</td>
+                                <td>19.04.2023</td>
+                                <td>
+                                    <div class="status canceled">
+                                        Canceled
+                                    </div>
+                                </td>
+                            </tr>
+                            <!--THIS SECTION WILL BE HIDDEN UNTIL USER ONCE TO SEE IT-->
+                            <tr class="more-info"></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
