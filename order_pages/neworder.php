@@ -1,3 +1,22 @@
+<?php
+
+    require_once('../config.php');
+    session_start();
+    $UserID = $_SESSION['UserID'];
+
+    $OrderID = $_POST['OrderID'];
+
+    $sqlOrder = "SELECT * FROM Orders WHERE OrderID=$OrderID";
+    $resultOrder = mysqli_query($conn, $sqlOrder);
+    $rowOrder = mysqli_fetch_assoc($resultOrder);
+
+    $sqlUser  = "SELECT UserID, fullname, profilePic, email, phoneNo FROM accounts WHERE UserID=$rowOrder[UserID]";
+    $resultUser = mysqli_query($conn, $sqlUser);
+    $rowUser = mysqli_fetch_assoc($resultUser);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -129,10 +148,10 @@
 
                                         />
                                         <div class="profile-credentials">
-                                            <h3>Olivera nules</h3>
+                                            <h3><?= $rowUser['fullname'] ?></h3>
                                             
-                                                oliveranules@gmail.com,
-                                                0147582457
+                                                <?=$rowUser['email'] ?>,
+                                                <?= $rowUser['phoneNo'] ?>
                                             
                                         </div>
                                     </div>
@@ -153,29 +172,44 @@
                                             <tr>
                                                 <td><b>Location</b></td>
                                                 <td>
-                                                    MA1, KTDI UTM, 813100
-                                                    Skudai, Johor
+
+                                                <?php
+                                                    $sqladdress = "SELECT * FROM addresses WHERE UserID=$rowUser[UserID]";
+                                                    $resultaddress = mysqli_query($conn, $sqladdress);
+
+                                                    $rowaddress = mysqli_fetch_assoc($resultaddress);
+
+                                                    echo "$rowaddress[address1] $rowaddress[address2] $rowaddress[postcode] $rowaddress[state] ";
+                                                ?>
+                                                   
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td><b>Order ID</b></td>
-                                                <td>0001</td>
+                                                <td><?= $rowOrder['OrderID']?></td>
                                             </tr>
                                             <tr>
                                                 <td><b>Delivery Date</b></td>
-                                                <td>12.04.2023</td>
+                                                <td><?= $rowOrder['deliveryDate']?></td>
                                             </tr>
                                             <tr>
                                                 <td><b>Delivery Time</b></td>
-                                                <td>12.00 AM</td>
+                                                <td><?= $rowOrder['deliveryTime']?></td>
                                             </tr>
                                             <tr>
                                                 <td><b>Delivery Type</b></td>
-                                                <td>Walk-In</td>
+                                                <td><?php 
+                                                    if($rowOrder['typeOfDelivery'] == 'walkin') echo 'Walk-in';
+                                                    else echo 'Deliver';
+                                                ?></td>
                                             </tr>
                                             <tr>
                                                 <td><b>Price</b></td>
-                                                <td>RM 2.10</td>
+                                                <td>RM <?=
+                                                    number_format((float)$rowOrder['price'], 2, '.', '');
+                                                    
+                                                
+                                                ?></td>
                                             </tr>
                                         </table>
                                         
@@ -188,45 +222,71 @@
                                             <div class="file-information">
                                                 <div class="file-row">
                                                     Color:
-                                                    <p><b>Black & White</b></p>
+                                                    <p><b><?php 
+                                                        if($rowOrder['color'] == "BW") echo 'Black & White';
+                                                        else echo 'Color'
+                                                    ?></b></p>
                                                 </div>
                                                 <div class="file-row">
                                                     Printing side:
-                                                    <p><b>Single</b></p>
+                                                    <p><b><?= $rowOrder['side'] ?></b></p>
                                                 </div>
                                                 <div class="file-row">
                                                     Page per sheet:
-                                                    <p><b>1 in 1</b></p>
+                                                    <p><b><?= $rowOrder['pagepersheet'] ?></b></p>
                                                 </div>
                                                 <div class="file-row">
                                                     Printing layout:
-                                                    <p><b>Potrait</b></p>
+                                                    <p><b><?= $rowOrder['layout'] ?></b></p>
                                                 </div>
                                             </div>
                                             <div class="file-information">
                                                 <div class="file-row">
                                                     Paper size:
-                                                    <p><b>A4</b></p>
+                                                    <p><b><?= $rowOrder['paperSize'] ?></b></p>
                                                 </div>
                                                 <div class="file-row">
                                                     Copies:
-                                                    <p><b>1</b></p>
+                                                    <p><b><?= $rowOrder['copies'] ?></b></p>
                                                 </div>
                                                 <div class="file-row">
                                                     Number of pages:
-                                                    <p><b>20</b></p>
+                                                    <p><b>1</b></p>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="row-button">
-                                            <button class="cancel">
+
+                                        <form action="update_order_status.php" method="post">
+                                            <input type="hidden" name="OrderID" value="<?= $rowOrder['OrderID'] ?>">
+                                            <input type="hidden" name="status" id="status" value="">
+                                            <input type="submit" value="" style="display: none;" id="submit">
+                                        </form>
+                                            <button class="cancel"  id="cancel">
                                                 Cancel
                                             </button>
-                                            <button class="complete">
-                                                Complete
+                                            <button class="complete" id="complete">
+                                                Accept
                                             </button>
                                         </div>
+                                        <script>
+                                            var acceptbutton = document.getElementById('complete');
+                                            var cancelbutton = document.getElementById('cancel');
+                                            var submitbutton = document.getElementById('submit');
+
+
+                                            acceptbutton.onclick = function() {
+                                                document.getElementById("status").value = "accepted";
+                                                submitbutton.click();
+                                            }
+                                            cancelbutton.onclick = function() {
+                                                document.getElementById("status").value = "rejected";
+                                                submitbutton.click();
+                                            }
+
+                                            
+                                        </script>
                                     </div>
                                 </div>
                             </div>

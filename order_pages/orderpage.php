@@ -195,7 +195,7 @@
                     </div>
                 </div>
             </div>
-            <form action="orderdetail.php" method="post">
+            <form action="neworder.php" method="post">
                                 <input type="hidden"  id="OrderID" name="OrderID" value="">
                                 <input type="submit" id="submit" value="" style="display: none;">
                             </form>

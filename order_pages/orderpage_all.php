@@ -152,39 +152,73 @@
                                 $SPID = mysqli_fetch_assoc($resultSPID)['SPID'];
 
                                 //FETCH ORDERS (PENDING ONLY)
-                                $sqlOrders = "SELECT o.OrderID, ac.fullname, o.price FROM Orders o JOIN accounts ac ON (ac.UserID=o.UserID) WHERE SPID=$SPID";
+                                $sqlOrders = "SELECT o.OrderID, o.status, ac.fullname, o.price FROM Orders o JOIN accounts ac ON (ac.UserID=o.UserID) WHERE SPID=$SPID";
                                 $resultOrders = mysqli_query($conn, $sqlOrders);
                                 while($rowOrders = mysqli_fetch_assoc($resultOrders))
                                 {
 
                                     $price = number_format((float)$rowOrders['price'], 2, '.', '');
-                                    echo "
-                                    
-                                    <tr>
-                                    <td>$rowOrders[OrderID]</td>
-                                    <td>$rowOrders[fullname]</td>
-                                    <td>Walk-in</td>
-                                    <td>RM$price</td>
-                                    <td>12.04.2023</td>
-                                    <td>12.04.2023</td>
-                                    <td>
-                                        <div class='row'>
-                                            <div class='status preparing'>
-                                                Pending
-                                            </div>
-                                            <img
-                                                src='../images/arrow.png'
-                                                alt=''
-                                                srcset=''
-                                                width='18'
-                                                class='arrow'
-                                                height='18'
-                                                onclick='openOrderDetails($rowOrders[OrderID])'
-                                            />
-                                        </div>
-                                    </td>
-                                </tr>
-                                    ";
+
+                                    if($rowOrders['status'] == "PREPARING")
+                                    {
+                                        echo "
+                                        
+                                        <tr>
+                                            <td>$rowOrders[OrderID]</td>
+                                            <td>$rowOrders[fullname]</td>
+                                            <td>Walk-in</td>
+                                            <td>RM$price</td>
+                                            <td>12.04.2023</td>
+                                            <td>12.04.2023</td>
+                                            <td>
+                                                <div class='row'>
+                                                    <div class='status preparing'>
+                                                        Preparing
+                                                    </div>
+                                                    <img
+                                                        src='../images/arrow.png'
+                                                        alt=''
+                                                        srcset=''
+                                                        width='18'
+                                                        class='arrow'
+                                                        height='18'
+                                                        onclick='openOrderDetail($rowOrders[OrderID])'
+                                                    />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        ";
+                                    }
+                                    else if ($rowOrders['status']=='DELIVERING')
+                                    {
+                                        echo "
+                                        
+                                        <tr>
+                                            <td>$rowOrders[OrderID]</td>
+                                            <td>$rowOrders[fullname]</td>
+                                            <td>Walk-in</td>
+                                            <td>RM$price</td>
+                                            <td>12.04.2023</td>
+                                            <td>12.04.2023</td>
+                                            <td>
+                                                <div class='row'>
+                                                    <div class='status completed'>
+                                                        Delivering
+                                                    </div>
+                                                    <img
+                                                        src='../images/arrow.png'
+                                                        alt=''
+                                                        srcset=''
+                                                        width='18'
+                                                        class='arrow'
+                                                        height='18'
+                                                        onclick='openOrderDetail($rowOrders[OrderID])'
+                                                    />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        ";
+                                    }
                                 }
                             ?>  
                             
