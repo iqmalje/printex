@@ -1,143 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>SP Setting</title>
-        <link rel="stylesheet" href="Setting.css" />
-    </head>
-    <body>
-        <div class="contents">
-            <div class="sidebar">
-                <div class="sidebar-contents">
-                    <img src="../images/printex_logo.png" />
-                        <div class="userprofile">
-                            <img src="../images/profile/Ellipse 1.png" />
-                            <p>Fikri Akmal Aizuddin Bin Bahrim</p>
-                        </div>
-                        <hr style="margin-top: 33px; margin-bottom: 10px" />
-                        <div class="item orderlist">
-                            <img
-                                class="icon"
-                                src="../images/icon-box.png"
-                                style="
-                                    width: 30px;
-                                    height: 30px;
-                                    margin: 0px;
-                                    margin-right: 20px;
-                                "
-                            />
-                            <p>Order list</p>
-                    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Setting</title>
+    <link rel="stylesheet" href="setting.css"/>
+</head>
+<body>
 
-                    <div class="item tracking">
-                        <img
-                            class="icon"
-                            src="../images/icon-pin.png"
-                            style="
-                                width: 30px;
-                                height: 30px;
-                                margin: 0px;
-                                margin-right: 20px;
-                            "
-                        />
-                        <p>Tracking</p>
-                    </div>
-                    <div class="item history">
-                        <img
-                            class="icon"
-                            src="../images/icon-clock.png"
-                            style="
-                                width: 30px;
-                                height: 30px;
-                                margin: 0px;
-                                margin-right: 20px;
-                            "
-                        />
-                        <p>History</p>
-                    </div>
-                    <div class="item settings">
-                        <img
-                            class="icon"
-                            src="../images/icon-settings.png"
-                            style="
-                                width: 30px;
-                                height: 30px;
-                                margin: 0px;
-                                margin-right: 20px;
-                            "
-                        />
-                        <p>Settings</p>
-                    </div>
-                    <p class="redirect-home">Return to home</p>
-                </div>
-            </div>
-            <div class="main">
-                <div
-                    class="description"
-                    style="margin-top: 56px; margin-left: 69px; width: 80%"
-                >
-                    <h1>PrinTEXer Setting</h1>
-                    <p style="margin-top: 9px; color: #808080">
-                        In the PrinTEXer setting section, you can review and update the information that will be 
-                        displayed to customers. Additionally, you can manage your service information in this section. 
-                        If you wish to make any changes, remember to click the save button to ensure the changes are 
-                        saved in the system.
-                    </p>
-                </div>
-                <div class="info-section">
-                    <div class="upper-menu">
-                        <ul>
-                            <li id="profile-button" class="section new focus">
-                                Profile
-                            </li>
-                            <li id="service-button" class="section all">
-                                Service
-                            </li>
-                        </ul>
-                    </div>
-                    <hr
-                        style="
-                            margin-top: 19px;
-                            margin-bottom: 33px;
-                            width: 90%;
-                        "
-                    />
+    <!-- NAVBAR -->
+    <div class="navitem">
+        <a href="index.html"><img src="printex_logo.png" alt="PrinTEX_logo" class="logo"></a>
+        <nav>
+            <ul>
+                <li><button type="becomePrinTEXer" class="becomePrinTEXer">Become PrinTEXer</button></li>
+                <li><img src="profile.png" alt="Profile_icon" class="profile"></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="line1"></div>
 
-                    <div class="content-section">
-                        <div class="userprofile-content">
-                            <img src="../images/profile/Ellipse 1.png" />
-                        </div>
-
-                    <div class="table-section">
-                        <h2 class="heading">Order ID</h2>
-                        <table style="width: 90%">
-                            <tr>
-                            </tr>
-                            <tr>
-                                <td>AK0011</td>
-                            </tr>
-                            <!--THIS SECTION WILL BE HIDDEN UNTIL USER ONCE TO SEE IT-->
-                            <tr class="more-info"></tr>
-                        </table>
-                    </div>
-                </div>
+    <!-- PROFILE HEADER -->
+    <div class="profileHeader">
+        <div class="profileHeader-title"><h2>Profile</h2></div>
+         <!-- PROFILE DESCRIPTION -->
+        <div class="profileDescription">
+            <div class="profileDescription-icon"><img src="questionMark_black.png" alt="info"></div>
+            <div class="profileDescription-text">
+            <p>You can easily view and edit your profile, including your name, phone number, and address, which will streamline<br>
+                the process of booking an order.</p>
             </div>
         </div>
-        <script>
-            var neworderbutton = document.getElementById("new-order-button");
-            var allorderbutton = document.getElementById("all-order-button");
+    <br><div class="line2"><div class="theLine"></div></div>
+    </div>
+    
+    
+    <!-- PROFILE DETAIL -->
+    <!-- PROFILE DETAIL(RIGHT) -->
+    <div class="profileDetail">
+        <div class="profileDetail-pic">
+            <div class="profilePic-container">
+                <img src="" alt="">
+            </div>
+        </div>
+        <!-- PROFILE DETAIL(LEFT) -->
+        <div class="profileDetail-info">
+            <!-- email -->
+            <div class="detailTitle"><p>Email</p></div>
+            <input type="text" placeholder="Email" class="email">
+            <!-- name -->
+            <div class="profileDetail-title2">
+                <div class="detailTitle"><p>Name</p></div>
+                <div class="edit"><p>Edit</p></div>
+            </div>
+            <input type="text" placeholder="Name" class="name">
+            <!-- phone no -->
+            <div class="profileDetail-title2">
+                <div class="detailTitle"><p>Phone Number</p></div>
+                <div class="edit"><p>Edit</p></div>
+            </div>
+            <input type="text" placeholder="Phone Number" class="phoneNo">
+            <!-- address -->
+            <div class="profileDetail-title2">
+                <div class="detailTitle"><p>Address</p></div>
+                <div class="edit"><p>Edit</p></div>
+            </div>
+            <input type="text" placeholder="Address Line 1" class="addressLine1">
+            <input type="text" placeholder="Address Line 2 (optional)" class="addressLine2">
+            <div class="addressLine3">
+                <input type="text" placeholder="State" class="state-input">
+                <input type="number" placeholder="Postcode" class="postcode-input">
+            </div>
+            <div class="save">
+                <button type="button"  class="save-button">Save</button>
+            </div>
+        </div>
+    </div>
 
-            neworderbutton.onclick = function () {
-                neworderbutton.className = "section new focus";
-                allorderbutton.className = "section all";
-            };
-
-            allorderbutton.onclick = function () {
-                neworderbutton.className = "section new";
-                allorderbutton.className = "section all focus";
-            };
-        </script>
-    </body>
+</body>
 </html>
