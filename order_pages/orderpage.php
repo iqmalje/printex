@@ -131,8 +131,18 @@
                                 <td>12.04.2023</td>
                                 <td>12.04.2023</td>
                                 <td>
-                                    <div class="status preparing">
-                                        Preparing
+                                    <div class="row">
+                                        <div class="status preparing">
+                                            Preparing
+                                        </div>
+                                        <img
+                                            src="../images/arrow.png"
+                                            alt=""
+                                            srcset=""
+                                            width="18"
+                                            class="arrow"
+                                            height="18"
+                                        />
                                     </div>
                                 </td>
                             </tr>

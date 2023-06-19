@@ -39,7 +39,7 @@
             $target_path = $destination_path . "/images/profile/$last_id." . $extension;
             move_uploaded_file($temp, $target_path);
         
-            $sql = "UPDATE accounts SET profilepic='/images/$last_id.$extension' WHERE UserID=$last_id";
+            $sql = "UPDATE accounts SET profilepic='/images/profile/$last_id.$extension' WHERE UserID=$last_id";
             mysqli_query($conn, $sql);
     
             //set up address
