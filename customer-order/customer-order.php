@@ -15,6 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>PrinTEX | Order</title>
         <link rel="stylesheet" href="customer-order.css" />
+        <script src="customer-order.js"></script>
     </head>
     <body>
         <div class="navitem">
@@ -34,7 +35,12 @@
                             alt="Profile_icon"
                             class="profilepic"
                             style="width: 50px; cursor: pointer; clip-path: circle(); height: 100%;"
+                            onclick="showDropdown()"
                         />
+                        <div class="dropdownmenu" id="dropdownmenu">
+                            <a href="#">Settings</a>
+                            <a href="#">Log out</a>
+                        </div>
                     </li>
                 </ul>
             </nav>
@@ -100,7 +106,7 @@
         <div class="row-order">
             <div class="column-order1">
                 <div class="inner-column-order1">
-                    <button type="button" class="uploadfile">
+                    <button type="button" class="uploadfile" id='uploadfile' onclick="selectFile()">
                         Click here to upload PDF file
                     </button>
 
@@ -199,6 +205,7 @@
                             id="text-copies"
                             placeholder="1"
                             class="order-copies-input"
+                            onkeyup="setCopies(this)"
                         />
                     </div>
 
@@ -209,6 +216,7 @@
                             placeholder="A4"
                             id="text-papersize"
                             class="order-papersize-input"
+                            onkeyup="setPaperSize(this)"
                         />
                     </div>
 
@@ -223,9 +231,7 @@
                     </div>
                 </div>
 
-                <button type="button" onclick="submit()" class="done-order">
-                    Done
-                </button>
+                
             </div>
 
             <div class="column-order2">
@@ -235,43 +241,46 @@
                         <p class="editSP">Edit</p>
                     </div>
 
-                    <div class="row-SPinfo">
-                        <img
-                            src="../images/profile/Ellipse 1.png"
-                            alt="SP profile"
-                        />
-                        <div class="column-SPinfo">
-                            <p class="SPname">
-                                Fikri Akmal Aizuddin Bin Bahrim
-                            </p>
-                            <p class="SPphone">013 752 6538</p>
+                    <div class="SPInfo" style="display: none;">
+                        <div class="row-SPinfo">
+                            <img
+                                src="../images/profile/Ellipse 1.png"
+                                alt="SP profile"
+                            />
+                            <div class="column-SPinfo">
+                                <p class="SPname">
+                                    Fikri Akmal Aizuddin Bin Bahrim
+                                </p>
+                                <p class="SPphone">013 752 6538</p>
+                            </div>
                         </div>
+                        <table class="table-deliveryinfo">
+                            <tr>
+                                <td class="type-deliveryinfo">Type</td>
+                                <td class="content-deliveryinfo">Walk-in</td>
+                            </tr>
+                            <tr>
+                                <td class="type-deliveryinfo">Date</td>
+                                <td class="content-deliveryinfo">13/6/2023</td>
+                            </tr>
+                            <tr>
+                                <td class="type-deliveryinfo">Time</td>
+                                <td class="content-deliveryinfo">9.00 pm</td>
+                            </tr>
+                            <tr>
+                                <td class="type-deliveryinfo">Location</td>
+                                <td class="content-deliveryinfo">
+                                    MA1, KTDI, UTM, 813100 Skudai, Johor
+                                </td>
+                            </tr>
+                        </table>
                     </div>
 
-                    <table class="table-deliveryinfo">
-                        <tr>
-                            <td class="type-deliveryinfo">Type</td>
-                            <td class="content-deliveryinfo">Walk-in</td>
-                        </tr>
-                        <tr>
-                            <td class="type-deliveryinfo">Date</td>
-                            <td class="content-deliveryinfo">13/6/2023</td>
-                        </tr>
-                        <tr>
-                            <td class="type-deliveryinfo">Time</td>
-                            <td class="content-deliveryinfo">9.00 pm</td>
-                        </tr>
-                        <tr>
-                            <td class="type-deliveryinfo">Location</td>
-                            <td class="content-deliveryinfo">
-                                MA1, KTDI, UTM, 813100 Skudai, Johor
-                            </td>
-                        </tr>
-                    </table>
-
-                    <button type="button" class="deliveryinfobtn">
-                        Click here to choose a PrinTEXer to perform your order
-                    </button>
+                    <div class="chooseSP">
+                        <button type="button" class="deliveryinfobtn">
+                            Click here to choose a PrinTEXer to perform your order
+                        </button>
+                    </div>
                 </div>
 
                 <div class="column-order2-suborder2">
@@ -280,33 +289,32 @@
                         <table class="table-orderdetails">
                             <tr>
                                 <td class="title-order">File name:</td>
-                                <td class="details-order">
-                                    Team 3 - P2 Requirements Model Template.pdf
+                                <td class="details-order" id="filename">
                                 </td>
                             </tr>
                             <tr>
                                 <td class="title-order">Printing color:</td>
-                                <td class="details-order">Black & White</td>
+                                <td class="details-order" id="filecolor"></td>
                             </tr>
                             <tr>
                                 <td class="title-order">Printing side:</td>
-                                <td class="details-order">Single</td>
+                                <td class="details-order" id="fileside"></td>
                             </tr>
                             <tr>
                                 <td class="title-order">Pages per sheet:</td>
-                                <td class="details-order">1 in 1</td>
+                                <td class="details-order" id="filepagepersheet"></td>
                             </tr>
                             <tr>
                                 <td class="title-order">Printing layout:</td>
-                                <td class="details-order">Portrait</td>
+                                <td class="details-order" id="filelayout"></td>
                             </tr>
                             <tr>
                                 <td class="title-order">Copies:</td>
-                                <td class="details-order">x 1</td>
+                                <td class="details-order" id="filecopies"></td>
                             </tr>
                             <tr>
                                 <td class="title-order">Paper size</td>
-                                <td class="details-order">A4</td>
+                                <td class="details-order" id="filesize"></td>
                             </tr>
                         </table>
                     </div>
@@ -314,12 +322,12 @@
                     <table class="table-calculateorder">
                         <tr style="height: 50px">
                             <td class="tagorder">Total pages</td>
-                            <td class="box-totalpages">21</td>
+                            <td class="box-totalpages" id="totalpages">0</td>
                             <td class="timessign">X</td>
                             <td class="tagorder">Price per page</td>
                             <td class="box-pricepersheet">0.10</td>
                             <td class="equalsign">=</td>
-                            <td class="totalprice">2.10</td>
+                            <td class="totalprice" id="totalprice">0.00</td>
                         </tr>
                         <tr style="height: 10px"></tr>
                         <tr style="height: 50px">
@@ -335,17 +343,36 @@
                     <hr />
                     <div class="row-totalprice">
                         <h1>Total Price</h1>
-                        <h1>RM2.30</h1>
+                        <h1 id="totalpricefee">RM0.20</h1>
                     </div>
                 </div>
 
                 <div class="checkoutsection">
-                    <button type="button" class="checkout-order">
+                    <button type="button" class="checkout-order" onclick="submit()">
                         Checkout
                     </button>
                 </div>
             </div>
         </div>
-        <script src="customer-order.js"></script>
+
+        <!--
+            THIS SECTION IS USED FOR SENDING TO CREATE_ORDER.php
+
+        -->
+
+        <form action="create_order.php" method="post" enctype="multipart/form-data">
+            <input type="file" style="display: none;" id="selectedfile" name="selectedfile" accept="application/pdf" onchange="setFileDetails(this)" />
+            <input type="hidden" id="selectcolor" name="color" />
+            <input type="hidden" id="selectside" name="side" />
+            <input type="hidden" id="selectpagepersheet" name="pagepersheet" />
+            <input type="hidden" id="selectlayout" name="layout" />
+            <input type="hidden" id="selectcopies" name="copies" />
+            <input type="hidden" id="selectsize" name="size" />
+            <input type="submit" style="display:none;" id="submit">
+            
+
+            
+        </form>
+        
     </body>
 </html>
