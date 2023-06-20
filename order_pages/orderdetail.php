@@ -235,20 +235,31 @@
                                             id=""
                                             placeholder="Drop any message to your customer"
                                         ></textarea>
-                                        <div class="row-button">
-                                            <button class="cancel"
+
+                                        <?php
+                                            if(!($rowOrder['status'] == 'COMPLETED' || $rowOrder['status'] == 'CANCELLED'))
+                                            {
+                                                echo "
+                                                <div class='row-button'>
+                                            <button class='cancel'
                                             
-                                            onclick="window.location.href = 'http:/\/localhost/printex/order_pages/orderpage_all.php'">
+                                            onclick='window.location.href = 'http:/\/localhost/printex/order_pages/orderpage_all.php''>
                                                 Cancel
                                             </button>
-                                            <form action="update_completed.php" method="post">
-                                                <input type="hidden" name="OrderID" value="<?=$OrderID ?>">
-                                                <input type="submit" value="" style="display:none;" id="submitcompleted">
+                                            <form action='update_completed.php' method='post'>
+                                                <input type='hidden' name='OrderID' value='<?=$OrderID ?>'>
+                                                <input type='submit' value='' style='display:none;' id='submitcompleted'>
                                             </form>
-                                            <button class="complete" onclick="document.getElementById('submitcompleted').click()">
+                                            <button class='complete' onclick='document.getElementById('submitcompleted').click()'>
                                                 Complete
                                             </button>
                                         </div>
+                                                
+                                                ";
+                                            }
+
+                                        ?>
+                                        
                                     </div>
 
                                     <div class="file-details">
