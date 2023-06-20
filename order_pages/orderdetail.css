@@ -333,8 +333,8 @@ h3 {
     background: #ffffff;
     border: 1px solid #000000;
     border-radius: 5px;
-    width: 30%;
-
+    width: 60%;
+    margin-left: 20px;
     height: 40px;
     text-align: center;
 }
@@ -391,6 +391,10 @@ h3 {
     cursor: pointer;
 }
 
+.column-data {
+    margin-top: 30px;
+}
+
 .complete {
     width: 120px;
     height: 40px;
@@ -399,4 +403,13 @@ h3 {
     background: #1957ab;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.deliver-button {
+    margin-left: 10px;
+    transition: all 0.25s;
+    cursor: pointer;
+}
+.deliver-button:hover {
+    background-color: teal;
 }

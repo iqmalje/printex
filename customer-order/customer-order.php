@@ -11,10 +11,11 @@
     $row = mysqli_fetch_assoc($result);
 
     if(isset($_POST['SPID'])){
-        echo 'ADA';
+        $spid = $_POST['SPID'];
+        echo $_POST['deliveryDate'];
     }
 
-
+    
 
   
 ?>
@@ -36,9 +37,18 @@
             <nav>
                 <ul>
                     <li>
-                        <button type="becomePrinTEXer" class="becomePrinTEXer">
-                            Become PrinTEXer
-                        </button>
+                        
+                            <?php
+
+                            $sql = "SELECT * FROM SPInfos WHERE UserID=$UserID";
+                            $result = mysqli_query($conn,$sql);
+                            if(mysqli_num_rows($result) > 0) 
+                                echo "<button type='becomePrinTEXer' onclick='window.location.href = \"http://localhost/printex/order_pages/orderpage.php\"' class='becomePrinTEXer'>Go to dashboard</button>";
+                            else 
+                                echo "<button type='becomePrinTEXer' onclick='window.location.href = \"http://localhost/printex/SP Settings/SP settings - Service.php\"' class='becomePrinTEXer'>Become PrinTEXer</button>";
+
+                            ?>
+                        
                     </li>
                     <li>
                         <img
@@ -237,8 +247,7 @@
                     <h2>Remarks (optional)</h2>
                     <div class="remark">
                         <textarea
-                            onkeyup="setRemarks(this)"
-                            name=""
+                            id="text-remark"
                             class="remark-textarea"
                             placeholder="Left some reminder to your PrinTEXer about your order"
                         ></textarea>
@@ -404,7 +413,20 @@
             <input type="hidden" id="selectlayout" name="layout" />
             <input type="hidden" id="selectcopies" name="copies" />
             <input type="hidden" id="selectsize" name="size" />
+            <input type="hidden" id="price" name="price" />
+            <input type="hidden" id="remark" name="remark" />
             <input type="submit" style="display:none;" id="submit">
+            <input type="hidden" name="SPID" value="<?= $SPID ?>">
+            <input type="hidden" name="totalPage" id="totalpage">
+            <?php
+                if(isset($_POST['SPID']))
+                {
+                    echo "<input type='hidden' name='deliveryDate' value='$_POST[deliveryDate]'>";
+                    echo "<input type='hidden' name='deliveryTime' value='$_POST[deliveryTime]'>";
+                    echo "<input type='hidden' name='typeOfDelivery' value='$_POST[typeOfDelivery]'>";
+                    
+                }
+            ?>
             
 
             

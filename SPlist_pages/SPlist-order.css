@@ -46,21 +46,21 @@ nav ul li {
 .becomePrinTEXer {
     width: 250px;
     height: 40px;
-    background: #D9D9D9;
+    background: #d9d9d9;
     border-radius: 25px;
     border: 0px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 30px;
     text-align: center;
-    color: #FFFFFF;
+    color: #ffffff;
     cursor: pointer;
 }
 
 .becomePrinTEXer:hover {
-    background-color: #1957AB;
+    background-color: #1957ab;
 }
 
 .profile {
@@ -79,14 +79,14 @@ nav ul li {
 .backbtn {
     width: 15%;
     height: 40px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
-    color: #FFFFFF;
+    color: #ffffff;
     border: 0px;
-    background-color: #D9D9D9;
+    background-color: #d9d9d9;
     cursor: pointer;
 }
 
@@ -96,7 +96,7 @@ nav ul li {
 
 h1 {
     text-align: center;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 600;
     font-size: 24px;
@@ -114,8 +114,8 @@ h1 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background: #FAFAFA;
-    border: 2px solid #D9D9D9;
+    background: #fafafa;
+    border: 2px solid #d9d9d9;
     border-radius: 15px;
     padding-left: 3%;
     padding-right: 3%;
@@ -138,13 +138,14 @@ h1 {
     justify-content: space-between;
 }
 
-.walkinbtn, .deliverbtn {
-    background: #F0EFEF;
+.walkinbtn,
+.deliverbtn {
+    background: #f0efef;
     border-radius: 10px;
     border: 0px;
     width: 45%;
-    height: 80%;
-    font-family: 'Poppins';
+    height: 60px;
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -154,7 +155,8 @@ h1 {
     cursor: pointer;
 }
 
-.walkinbtn:hover, .deliverbtn:hover {
+.walkinbtn:hover,
+.deliverbtn:hover {
     background-color: #1957ab;
     color: white;
 }
@@ -180,7 +182,7 @@ h1 {
 }
 
 .deliverytypetext {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -189,11 +191,12 @@ h1 {
     padding-bottom: 15px;
 }
 
-.dateselect, .timeselect {
-    background: #F0EFEF;
+.dateselect,
+.timeselect {
+    background: #f0efef;
     border-radius: 10px;
     border: 0px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -207,10 +210,10 @@ h1 {
 
 .locationtext {
     height: 100%;
-    background: #F0EFEF;
+    background: #f0efef;
     border-radius: 10px;
     border: 0px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -229,8 +232,8 @@ h1 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background: #FAFAFA;
-    border: 2px solid #D9D9D9;
+    background: #fafafa;
+    border: 2px solid #d9d9d9;
     border-radius: 15px;
     padding-left: 3%;
     padding-right: 3%;
@@ -246,7 +249,7 @@ h1 {
 
 td {
     background-color: transparent;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
@@ -263,20 +266,21 @@ td {
     width: 80px;
     height: 35px;
     background: #dfdfdf;
-    border-radius: 4px;font-family: 'Poppins';
+    border-radius: 4px;
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
-    border: 0px; 
+    border: 0px;
     display: flex;
     align-items: center;
     text-align: center;
-    color: #FFFFFF;
+    color: #ffffff;
     justify-content: center;
     cursor: pointer;
 }
 
 .selectbtn:hover {
-    background-color: #1957AB;
+    background-color: #1957ab;
 }
