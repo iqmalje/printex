@@ -171,6 +171,14 @@ nav ul li {
     margin: 5%;
 }
 
+.main-data {
+    margin-top: 10px;
+}
+
+.main-section {
+    width: 90%;
+}
+
 .userprofile {
     display: flex;
     width: auto;
@@ -186,6 +194,96 @@ nav ul li {
 
     width: 60px;
     height: 60px;
+}
+
+.profile {
+    display: flex;
+    justify-content: right;
+}
+
+.file-row {
+    display: flex;
+}
+
+.file-details {
+    display: flex;
+    flex: 1;
+    margin-left: 200px;
+    margin-top: 50px;
+    justify-content: space-around;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 15px;
+}
+
+.file-row {
+    display: flex;
+}
+
+.file-details {
+    display: flex;
+    flex: 1;
+    margin-left: 200px;
+    margin-top: 50px;
+    justify-content: space-around;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 15px;
+}
+
+.buttons {
+    display: flex;
+    width: 100%;
+}
+
+.button-column {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.button-back {
+    width: 190px;
+    height: 40px;
+    border: none;
+    color: white;
+    background: #d9d9d9;
+}
+
+.button-column button {
+    margin-top: 10px;
+    width: 110px;
+    height: 33px;
+    background: #ffffff;
+    border: 2px solid #1957ab;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.button-column button:hover {
+    background-color: grey;
+    color: white;
+    opacity: 0.75;
+}
+
+.button-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+
+.row-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.row-button button {
+    margin-left: 20px;
 }
 
 hr {

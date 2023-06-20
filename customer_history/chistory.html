@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrinTEX | Order </title>
+    <link rel="stylesheet" href="chistory.css" />
+</head>
+<body>
+    <div class="navitem">
+        <a href="index.html"><img src="../images/logo.png" alt="PrinTEX_logo" class="logo"></a>
+        <nav>
+            <ul>
+                <li><button type="becomePrinTEXer" class="becomePrinTEXer">Go to dashboard</button></li>
+                <li><img src="../images/profile.png" alt="Profile_icon" class="profile"></li>
+            </ul>
+        </nav>
+    </div>
+
+    <hr>
+
+    <div class="grid-container">
+        <div class="grid-item a1">
+            <div class="content">
+                <img src="../images/grid-order.png" alt="Icon_order" class="grid-icon">
+                <p class="grid-text">Order</p>
+            </div>
+        </div>
+        <div class="grid-item a2">
+            <div class="content">
+                <img src="../images/grid-tracking.png" alt="Icon_tracking" class="grid-icon">
+                <p class="grid-text">Tracking</p>
+            </div>
+        </div>
+        <div class="grid-item a3 selected">
+            <div class="content">
+                <img src="../images/grid-history.png" alt="Icon_history" class="grid-icon">
+                <p class="grid-text">History</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <hr>
+    
+
+    <div class="column-sectioninfo">
+        <div class="row-sectioninfo">
+            <img src="../images/section-icon.png" alt="Section_icon" class="info-icon">
+            <p class="section-text">You can easily review your previous orders and examine 
+                the specific details of each transaction you have made.</p>
+        </div>
+    </div><br>
+    <input
+        class="search-bar"
+        type="text"
+        placeholder="Search for order ID, customer, order status or something..."
+    />
+    <div class="table-section">
+        <table style="width: 90%">
+        <tr>
+            <th>Order ID</th>
+            <th>Accepted by</th>
+            <th>Delivery</th>
+            <th>Location</th>
+            <th>Total price</th>
+            <th>Order Date</th>
+            <th>Order Status</th>
+        </tr>
+        <tr>
+            <td>AK0011</td>
+            <td>Rahman Najib</td>
+            <td>Walk-in</td>
+            <td>MA1, KTDI, UTM, 81310 Skudai, Johor</td>
+            <td>RM 2.10</td>
+            <td>12.04.2023</td>
+            <td>
+                <div class="row">
+                    <div class="status completed">
+                        Successful
+                    </div>
+                    <img
+                        src="../images/arrow.png"
+                        alt=""
+                        srcset=""
+                        width="18"
+                        class="arrow"
+                        height="18"
+                    />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>AK0012</td>
+            <td>Rahman Najib</td>
+            <td>Walk-in</td>
+            <td>MA1, KTDI, UTM, 81310 Skudai, Johor</td>
+            <td>RM 3.10</td>
+            <td>14.04.2023</td>
+            <td>
+                <div class="row">
+                    <div class="status canceled">
+                        Canceled
+                    </div>
+                    <img
+                        src="../images/arrow.png"
+                        alt=""
+                        srcset=""
+                        width="18"
+                        class="arrow"
+                        height="18"
+                    />
+                </div>
+            </td>
+        </tr>
+        <tr class="more-info"></tr>
+    </table>
+</div>
+</div>
+    
+</body>
+</html>
