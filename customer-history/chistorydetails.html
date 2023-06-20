@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>History Details</title>
-    <link rel="stylesheet" href="chistory.css" />
+    <link rel="stylesheet" href="chistorydetails.css" />
 </head>
 <body>
     <div class="navitem">
@@ -18,6 +18,20 @@
     </div>
 
     <hr>
+    
+    <button class="button-back">
+        <div class="button-content">
+            <img
+                src="../images/white-arrow.png"
+                alt=""
+                srcset=""
+            />
+            Back To Order List
+        </div>
+    </button>
+    <div class="order-details">
+        <h2><b>Order Details</b></h2>
+    </div>
     <div class="main-data">
         <div class="column">
             <div class="profile">
@@ -27,6 +41,7 @@
                         alt=""
                         class="profile-image"
                         srcset=""
+                        style="width: 50px; height: 50px;"
                     />
                     <div class="profile-credentials">
                         <h3>Olivera nules</h3>
@@ -34,54 +49,55 @@
                             013 752 6538
                         </p>
                     </div>
-                    <div class="status completed">
-                        Successful
-                    </div>
                 </div>
-                <button class="button-back">
-                    <div class="button-content">
-                        <img
-                            src="../images/white-arrow.png"
-                            alt=""
-                            srcset=""
-                        />
-                        Back To Order List
-                    </div>
-                </button>
             </div>
             <div class="information-row">
                 <div class="column">
                     <table>
-                        <tr>
-                            <td><b>Location</b></td>
+                        <tr style="height: 30px;">
+                            <td style="width: 120px;"><b>Location</b></td>
                             <td>
                                 MA1, KTDI UTM, 813100
                                 Skudai, Johor
                             </td>
                         </tr>
-                        <tr>
+                        <tr style="height: 30px;">
+                            <td><b>Order ID</b></td>
+                            <td>AK0011</td>
+                        </tr>
+                        <tr style="height: 30px;">
                             <td><b>Order Date</b></td>
                             <td>12.04.2023</td>
                         </tr>
-                        <tr>
-                            <td><b>Order Time</b></td>
-                            <td>12.00 a.m.</td>
-                        </tr>
-                        <tr>
-                            <td><b>Delivery Date</b></td>
-                            <td>12.04.2023</td>
-                        </tr>
-                        <tr>
+                        <tr style="height: 30px;">
                             <td><b>Delivery Time</b></td>
                             <td>12.00 AM</td>
                         </tr>
-                        <tr>
+                        <tr style="height: 30px;">
                             <td><b>Delivery Type</b></td>
                             <td>Walk-In</td>
                         </tr>
-                        <tr>
+                        <tr style="height: 30px;">
                             <td><b>Price</b></td>
                             <td>RM 2.10</td>
+                        </tr>
+                        <tr style="height: 30px;">
+                            <td><b>Order Status</b></td>
+                            <td class="status completed">Successful</td>
+                        </tr>
+                        <tr style="height: 30px;">
+                            <td><b>Rating</b></td>
+                            <td>5 Stars</td>
+                        </tr>
+                        <tr style="height: 30px;">
+                            <td><b>Comment</b></td>
+                            <td>
+                                <input 
+                                class="comment-bar"
+                                type="text"
+                                placeholder="Type comment..."
+                                />
+                            </td>
                         </tr>
                     </table>
                 </div>
@@ -104,8 +120,6 @@
                             Printing layout: 
                             <b>Potrait</b>
                         </div>
-                    </div>
-                    <div class="file-information">
                         <div class="file-row">
                             Paper size: 
                             <b>A4</b>
@@ -118,7 +132,7 @@
                             Number of pages: 
                             <b>20</b>
                         </div>
-                    </div>
+                    </div>    
                 </div>
             </div>
         </div>
