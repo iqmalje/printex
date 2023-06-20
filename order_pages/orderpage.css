@@ -185,6 +185,7 @@ th {
 
 .completed {
     background-color: #1957ab;
+    width: 50%;
 }
 
 .canceled {

@@ -46,20 +46,21 @@ nav ul li {
 .becomePrinTEXer {
     width: 250px;
     height: 40px;
-    background: #D9D9D9;
+    background: #d9d9d9;
     border-radius: 25px;
     border: 0px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 30px;
     text-align: center;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .profile {
     width: 50px;
+    clip-path: circle();
     cursor: pointer;
 }
 
@@ -75,7 +76,7 @@ nav ul li {
 .grid-item {
     height: 120px;
     width: 120px;
-    background: #1957AB;
+    background: #1957ab;
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -95,13 +96,13 @@ nav ul li {
 
 .grid-text {
     padding-top: 5px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 30px;
     text-align: center;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .column-sectioninfo {
@@ -125,14 +126,13 @@ nav ul li {
 
 .section-text {
     padding-left: 5px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
     line-height: 22px;
     color: #808080;
 }
-
 
 .column-tracking {
     width: 74%;
@@ -143,8 +143,8 @@ nav ul li {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background: #FAFAFA;
-    border: 2px solid #D9D9D9;
+    background: #fafafa;
+    border: 2px solid #d9d9d9;
     border-radius: 15px;
     padding-left: 3%;
     padding-right: 3%;
@@ -160,7 +160,7 @@ nav ul li {
 
 td {
     background-color: transparent;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
@@ -182,10 +182,25 @@ td {
     background-color: #ff9533;
 }
 
+.delivering {
+    background-color: #4ca876;
+}
+
+.completed {
+    background-color: #1957ab;
+}
+
+.canceled {
+    background-color: #e73232;
+}
+
 .table-row {
     height: 50px;
 }
 
+.viewdetails {
+    cursor: pointer;
+}
 .viewdetails:hover {
-    background-color: #1957AB;
+    background-color: #1957ab;
 }

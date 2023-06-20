@@ -83,7 +83,7 @@
                     <p class="grid-text">Order</p>
                 </div>
             </div>
-            <div class="grid-item a2">
+            <div class="grid-item a2" onclick="window.location.href = 'http:/\/localhost/printex/customer-tracking/customer-tracking.php'">
                 <div class="content">
                     <img
                         src="../images/grid-tracking.png"
