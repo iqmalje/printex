@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrinTEX | Order </title>
+    <title>Customer History Order</title>
     <link rel="stylesheet" href="chistory.css" />
 </head>
 <body>
@@ -40,9 +40,9 @@
         </div>
     </div>
 
-    <div class="main">
+    <div>
         <hr>
-    
+    </div>
 
     <div class="column-sectioninfo">
         <div class="row-sectioninfo">
@@ -54,69 +54,69 @@
     <input
         class="search-bar"
         type="text"
+        
         placeholder="Search for order ID, customer, order status or something..."
     />
-    <div class="table-section">
-        <table style="width: 90%">
-        <tr>
-            <th>Order ID</th>
-            <th>Accepted by</th>
-            <th>Delivery</th>
-            <th>Location</th>
-            <th>Total price</th>
-            <th>Order Date</th>
-            <th>Order Status</th>
-        </tr>
-        <tr>
-            <td>AK0011</td>
-            <td>Rahman Najib</td>
-            <td>Walk-in</td>
-            <td>MA1, KTDI, UTM, 81310 Skudai, Johor</td>
-            <td>RM 2.10</td>
-            <td>12.04.2023</td>
-            <td>
-                <div class="row">
+    <div class="column-tracking">
+        <table class="table-section">
+            <tr style="height: 60px;">
+                <td style="width: 10%;"><b>Order ID</b></td>
+                <td ><b>Accepted by</b></td>
+                <td><b>Delivery</b></td>
+                <td><b>Location</b></td>
+                <td><b>Total price</b></td>
+                <td><b>Order date</td></b>
+                <td style="width: 10%;"><b>Status</b></td>
+            </tr>
+
+            <tr class="table-row">
+                <td>AK0011</td>
+                <td>Rahman Najib</td>
+                <td>Walk-In</td>
+                <td>MA1, KTDI, UTM, 81310 Skudai, Johor</td>
+                <td>Rm2.10</td>
+                <td>12.04.2023</td>
+                <td>
                     <div class="status completed">
-                        Successful
+                        Successful        
                     </div>
-                    <img
-                        src="../images/arrow.png"
-                        alt=""
-                        srcset=""
-                        width="18"
-                        class="arrow"
-                        height="18"
-                    />
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>AK0012</td>
-            <td>Rahman Najib</td>
-            <td>Walk-in</td>
-            <td>MA1, KTDI, UTM, 81310 Skudai, Johor</td>
-            <td>RM 3.10</td>
-            <td>14.04.2023</td>
-            <td>
-                <div class="row">
+                </td>
+                <td style="width: 7%;"><img src="../images/Near me.png" alt="View details" class="viewdetails"></td>
+            </tr>
+
+            <tr class="table-row">
+                <td>AK0012</td>
+                <td>Rahman Najib</td>
+                <td>Walk-In</td>
+                <td>MA1, KTDI, UTM, 81310 Skudai, Johor</td>
+                <td>Rm3.10</td>
+                <td>14.04.2023</td>
+                <td>
+                    <div class="status completed">
+                        Successful        
+                    </div>
+                </td>
+                <td style="width: 7%;"><img src="../images/Near me.png" alt="View details" class="viewdetails"></td>
+            </tr>
+
+            <tr class="table-row">
+                <td>AK0013</td>
+                <td>Rahman Najib</td>
+                <td>Walk-In</td>
+                <td>MA1, KTDI, UTM, 81310 Skudai, Johor</td>
+                <td>Rm4.10</td>
+                <td>17.04.2023</td> 
+                <td>
                     <div class="status canceled">
-                        Canceled
+                        Canceled        
                     </div>
-                    <img
-                        src="../images/arrow.png"
-                        alt=""
-                        srcset=""
-                        width="18"
-                        class="arrow"
-                        height="18"
-                    />
-                </div>
-            </td>
-        </tr>
-        <tr class="more-info"></tr>
-    </table>
-</div>
-</div>
+                </td>
+                <td style="width: 7%;"><img src="../images/Near me.png" alt="View details" class="viewdetails"></td>
+            </tr>
+
+
+        </table>
+    </div>
     
 </body>
 </html>

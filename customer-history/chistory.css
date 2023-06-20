@@ -260,6 +260,7 @@ ul {
     height: 40px;
     border-radius: 5px;
     border: none;
+    margin-left: 50px;
     background: #ffffff;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     padding: 10px 0px 11px 13px;
@@ -268,7 +269,13 @@ ul {
 }
 
 .table-section {
-    margin-top: 30px;
+    width: 100%;
+    text-align: center;
+    background-color: transparent;
+}
+
+.table-row {
+    height: 50px;
 }
 
 th {
@@ -276,16 +283,26 @@ th {
     text-align: start;
 }
 
-.status {
-    padding: 3px 17px 3px 17px;
+td {
+    background-color: transparent;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    color: #000000;
+}
 
+
+
+.status {
     border-radius: 5px;
     color: white;
-    width: 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 30px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .preparing {
