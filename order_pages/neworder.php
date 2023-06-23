@@ -4,6 +4,10 @@
     session_start();
     $UserID = $_SESSION['UserID'];
 
+    $sql = "SELECT profilePic, fullname FROM accounts WHERE UserID=$UserID";
+    $resultProfile = mysqli_query($conn, $sql);
+    $rowProfile = mysqli_fetch_assoc($resultProfile);
+
     $OrderID = $_POST['OrderID'];
 
     $sqlOrder = "SELECT * FROM Orders WHERE OrderID=$OrderID";
@@ -32,11 +36,11 @@
                 <div class="sidebar-contents">
                     <img src="../images/printex_logo.png" />
                     <div class="userprofile">
-                        <img src="../images/profile/Ellipse 1.png" />
-                        <p>Fikri Akmal Aizuddin Bin Bahrim</p>
+                        <img src="..<?= $rowProfile['profilePic'] ?>" style="clip-path:circle()" width="60" />
+                        <p><?= $rowProfile['fullname'] ?></p>
                     </div>
                     <hr style="margin-top: 33px; margin-bottom: 10px" />
-                    <div class="item orderlist">
+                    <div class="item orderlist" onclick="window.location.href='http:/\/localhost/printex/order_pages/orderpage.php'">
                         <img
                             class="icon"
                             src="../images/icon-box.png"
@@ -49,20 +53,8 @@
                         />
                         <p>Order list</p>
                     </div>
-                    <div class="item tracking">
-                        <img
-                            class="icon"
-                            src="../images/icon-pin.png"
-                            style="
-                                width: 30px;
-                                height: 30px;
-                                margin: 0px;
-                                margin-right: 20px;
-                            "
-                        />
-                        <p>Tracking</p>
-                    </div>
-                    <div class="item history">
+                    
+                    <div class="item history" onclick="window.location.href = 'http:/\/localhost/printex/SP_history/sphistory.php'">
                         <img
                             class="icon"
                             src="../images/icon-clock.png"
@@ -75,7 +67,7 @@
                         />
                         <p>History</p>
                     </div>
-                    <div class="item settings">
+                    <div class="item settings" onclick="window.location.href='http:/\/localhost/printex/SP%20Settings/SP%20settings.php'">
                         <img
                             class="icon"
                             src="../images/icon-settings.png"
@@ -88,7 +80,11 @@
                         />
                         <p>Settings</p>
                     </div>
-                    <p class="redirect-home">Return to home</p>
+                    
+                    <a href="http://localhost/printex/customer-order/customer-order.php">
+                        
+                        <p class="redirect-home">Return to home</p>
+                    </a>
                 </div>
             </div>
             <div class="main">
@@ -140,11 +136,11 @@
                                 <div class="profile">
                                     <div class="profile-info">
                                         <img
-                                            src="../images/profile/13.png"
+                                            src="..<?= $rowUser['profilePic'] ?>"
                                             alt=""
                                             class="profile-image"
                                             srcset=""
-                                            style="width: 50px; height: 50px;"
+                                            style="width: 50px; height: 50px; clip-path: circle()"
 
                                         />
                                         <div class="profile-credentials">
@@ -155,7 +151,7 @@
                                             
                                         </div>
                                     </div>
-                                    <button class="back">
+                                    <button class="back" onclick="window.location.href='http:/\/localhost/printex/order_pages/orderpage.php'">
                                         <div class="button-content">
                                             <img
                                                 src="../images/white-arrow.png"

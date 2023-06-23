@@ -20,6 +20,10 @@
         //POST to customer-order.php with id
         $UserID = mysqli_fetch_assoc($result)['UserID'];
 
+        
+        // this will set the cookie expiration in 7 days
+
+        setcookie("UserID", $UserID, strtotime("+7 days"));
         session_start();
 
 

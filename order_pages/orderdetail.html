@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="orderdetail.css" />
+    </head>
+    <body>
+        <div class="contents">
+            <div class="sidebar">
+                <div class="sidebar-contents">
+                    <img src="../images/printex_logo.png" alt="printex_logo" />
+                    <div class="userprofile">
+                        <img
+                            src="../images/profile/Ellipse%201.png"
+                            alt="Ellipse%201"
+                        />
+                        <p>Fikri Akmal Aizuddin Bin Bahrim</p>
+                    </div>
+                    <hr style="margin-top: 33px; margin-bottom: 10px" />
+                    <div class="item orderlist" onclick="window.location.href='http:/\/localhost/printex/order_pages/orderpage.php'">
+                        <img
+                            class="icon"
+                            src="../images/icon-box.png"
+                            style="
+                                width: 30px;
+                                height: 30px;
+                                margin: 0px;
+                                margin-right: 20px;
+                            "
+                            alt="icon-box"
+                        />
+                        <p>Order list</p>
+                    </div>
+                   
+                    <div class="item history" onclick="window.location.href = 'http:/\/localhost/printex/SP_history/sphistory.php'">
+                        <img
+                            class="icon"
+                            src="../images/icon-clock.png"
+                            style="
+                                width: 30px;
+                                height: 30px;
+                                margin: 0px;
+                                margin-right: 20px;
+                            "
+                            alt="icon-clock"
+                        />
+                        <p>History</p>
+                    </div>
+                    <div class="item settings" >
+                        <img
+                            class="icon"
+                            src="../images/icon-settings.png"
+                            style="
+                                width: 30px;
+                                height: 30px;
+                                margin: 0px;
+                                margin-right: 20px;
+                            "
+                            alt="icon-settings"
+                        />
+                        <p>Settings</p>
+                    </div>
+                    <a href="http://localhost/printex/customer-order/customer-order.php">
+                        <p class="redirect-home">Return to home</p>
+                    </a>
+                </div>
+            </div>
+            <div class="main">
+                <div
+                    class="description"
+                    style="margin-top: 56px; margin-left: 69px; width: 80%"
+                >
+                    <h1>Order Details</h1>
+                    <h4>
+                        In the order details section, you can review and manage
+                        all the orders with their details. You can view and edit
+                        many information such as IDs of all orders, customers
+                        name, order date, price and order status. Access to this
+                        area is limited. Only administrators and PrinTEXer can
+                        reach. The changes you make will be approved after they
+                        are checked.
+                    </h4>
+                </div>
+                <div class="info-section">
+                    <div class="upper-menu">
+                        <ul>
+                            <li id="new-order-button" class="section new focus">
+                                New Orders
+                            </li>
+                            <li id="all-order-button" class="section all">
+                                All Orders
+                            </li>
+                        </ul>
+                    </div>
+                    <hr
+                        style="
+                            margin-top: 19px;
+                            margin-bottom: 33px;
+                            width: 90%;
+                        "
+                    />
+                    <div class="main-section">
+                        <div class="main-info">
+                            <h2>The Order Details</h2>
+                            <h4>
+                                The page enables PrinTEXer to update the
+                                estimated delivery time and order status,
+                                facilitating efficient order management and
+                                effective customer communication
+                            </h4>
+                        </div>
+                        <div class="main-data">
+                            <div class="column">
+                                <div class="profile">
+                                    <div class="profile-info">
+                                        <!-- CHANGE HERE LATER-->
+                                        <img
+                                            src="../images/profile.png"
+                                            alt="profile"
+                                            class="profile-image"
+                                            srcset=""
+                                            style="
+                                                width: 50px;
+                                                height: 50px;
+                                                clip-path: circle();
+                                            "
+                                        />
+                                        <!-- CHANGE HERE LATER-->
+                                        <div class="profile-credentials">
+                                            <h3>IQMAL AIZAT</h3>
+                                            iqmalaizat5ab@gmail.com, 0147582457
+                                        </div>
+                                    </div>
+                                    <button
+                                        class="back"
+                                        onclick="window.location.href='http:/\/localhost/printex/order_pages/orderpage.php'"
+                                    >
+                                        <div class="button-content">
+                                            <img
+                                                src="../images/white-arrow.png"
+                                                alt="white-arrow"
+                                                srcset=""
+                                            />
+                                            Back To Order List
+                                        </div>
+                                    </button>
+                                </div>
+                                <div class="information-row">
+                                    <div class="column">
+                                        <table class="table-info">
+                                            <tr>
+                                                <td><b>Location</b></td>
+                                                <td>
+                                                    <!--CHANGE HERE LATER 
+                                                <?php
+                                                    $sqladdress = "SELECT * FROM addresses WHERE UserID=$rowUser[UserID]";
+                                                    $resultaddress = mysqli_query($conn, $sqladdress);
+
+                                                    $rowaddress = mysqli_fetch_assoc($resultaddress);
+
+                                                    echo "$rowaddress[address1] $rowaddress[address2] $rowaddress[postcode] $rowaddress[state] ";
+                                                ?>
+                                                   -->
+                                                    MA1, KTDI, UTM, 813100
+                                                    Skudai, Johor
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Order ID</b></td>
+                                                <td>
+                                                    <!-- <?= $rowOrder['OrderID']?> -->
+                                                    01
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Delivery Date</b></td>
+                                                <td>
+                                                    <!-- <?= $rowOrder['deliveryDate']?> -->
+                                                    12.04.2023
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Delivery Time</b></td>
+                                                <td>
+                                                    <!-- <?= $rowOrder['deliveryTime']?> -->
+                                                    12.00 a.m
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Delivery Type</b></td>
+                                                <td>
+                                                    <!-- <?php 
+                                                        if($rowOrder['typeOfDelivery'] == 'walkin') echo 'Walk-in';
+                                                        else echo 'Deliver';
+                                                        ?> -->
+                                                    aaa
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Price</b></td>
+                                                <td>
+                                                    RM 2.10
+                                                    <!-- <?=
+                                                                                                number_format((float)$rowOrder['price'], 2, '.', '');
+                                                                                                
+                                                                                            
+                                                                                            ?> -->
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div class="update-order">
+                                            <form action="" method="post">
+                                                <br />
+                                                Estimated delivery time
+                                                <br />
+                                                <div class="update-time-row">
+                                                    <input
+                                                        type="time"
+                                                        name="deliveryTimer"
+                                                        id=""
+                                                        style="
+                                                            width: 65%;
+                                                            height: 2.5rem;
+                                                            border-radius: 5px;
+                                                            border: 1px solid
+                                                                black;
+                                                            text-align: center;
+                                                        "
+                                                        value=""
+                                                    />
+                                                    <input
+                                                        type="submit"
+                                                        value="Update"
+                                                        class="update-time"
+                                                    />
+                                                </div>
+                                                <br />
+                                                <input
+                                                    type="text"
+                                                    name=""
+                                                    id=""
+                                                    style="
+                                                        width: 98%;
+                                                        height: 3rem;
+                                                    "
+                                                    placeholder="Drop any message to your customer"
+                                                />
+                                                <br />
+                                                <br />
+                                                <div class="update-button-row">
+                                                    <input
+                                                        type="submit"
+                                                        value="Cancel"
+                                                        class="update-order-button cancel"
+                                                    />
+                                                    <input
+                                                        type="submit"
+                                                        class="update-order-button"
+                                                        value="Complete"
+                                                    />
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="column2">
+                                        <div class="file-details">
+                                            <div class="file-information">
+                                                <div class="file-row">
+                                                    File name:
+                                                    <b>URD TEAM 3.pdf</b>
+                                                </div>
+                                                <div class="file-row">
+                                                    Color: <b>Black & White</b>
+                                                </div>
+                                                <div class="file-row">
+                                                    Printing side: <b>Single</b>
+                                                </div>
+                                                <div class="file-row">
+                                                    Page per sheet:
+                                                    <b>1 in 1</b>
+                                                </div>
+                                                <div class="file-row">
+                                                    Printing layout:
+                                                    <b>Portrait</b>
+                                                </div>
+                                                <div class="file-row">
+                                                    Paper size: <b>A4</b>
+                                                </div>
+                                                <div class="file-row">
+                                                    Copies: <b>1</b>
+                                                </div>
+                                                <div class="file-row">
+                                                    Number of pages: <b>20</b>
+                                                </div>
+                                            </div>
+                                            <div class="print-menu">
+                                                <div class="print-menu-row">
+                                                    <img
+                                                        src="../images/printer-logo.png"
+                                                        alt="printer-logo"
+                                                        srcset=""
+                                                    />
+                                                    <h3>Auto-Print</h3>
+                                                </div>
+                                                <br />
+                                                <button
+                                                    class="print-menu-button"
+                                                >
+                                                    Print (B&amp;W)</button
+                                                ><br />
+                                                <button
+                                                    class="print-menu-button"
+                                                >
+                                                    Print (Color)</button
+                                                ><br />
+                                                <button
+                                                    class="print-menu-button"
+                                                >
+                                                    Only Print
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="row-button">
+                                            <form
+                                                action="update_order_status.php"
+                                                method="post"
+                                            >
+                                                <input
+                                                    type="hidden"
+                                                    name="OrderID"
+                                                    value="&lt;?= $rowOrder['OrderID'] ?&gt;"
+                                                />
+                                                <input
+                                                    type="hidden"
+                                                    name="status"
+                                                    id="status"
+                                                    value=""
+                                                />
+                                                <input
+                                                    type="submit"
+                                                    value=""
+                                                    style="display: none"
+                                                    id="submit"
+                                                />
+                                            </form>
+                                        </div>
+                                        <script>
+                                            var acceptbutton =
+                                                document.getElementById(
+                                                    "complete"
+                                                );
+                                            var cancelbutton =
+                                                document.getElementById(
+                                                    "cancel"
+                                                );
+                                            var submitbutton =
+                                                document.getElementById(
+                                                    "submit"
+                                                );
+
+                                            acceptbutton.onclick = function () {
+                                                document.getElementById(
+                                                    "status"
+                                                ).value = "accepted";
+                                                submitbutton.click();
+                                            };
+                                            cancelbutton.onclick = function () {
+                                                document.getElementById(
+                                                    "status"
+                                                ).value = "rejected";
+                                                submitbutton.click();
+                                            };
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -60,7 +60,7 @@ body {
 }
 h1 {
     padding-left: 10px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 600;
     font-size: 32px;
@@ -114,7 +114,7 @@ h1 {
 }
 
 h4 {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -191,7 +191,7 @@ ul {
 }
 
 .focus {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
@@ -215,7 +215,7 @@ ul {
 }
 
 .text {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -224,8 +224,6 @@ ul {
     padding-top: 12px;
     padding-bottom: 10px;
 }
-
-
 
 th {
     font-weight: 500;
@@ -238,12 +236,12 @@ th {
     color: white;
     width: 40%;
     text-align: center;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
     line-height: 22px;
-    text-align: center;   
+    text-align: center;
 }
 
 .information-row {
@@ -286,7 +284,7 @@ th {
     background: #ffffff;
     border: 1px solid #000000;
     border-radius: 15px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -295,7 +293,7 @@ th {
 }
 
 p {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
@@ -303,7 +301,6 @@ p {
     color: #000000;
     padding-left: 10px;
 }
-
 
 .buttons {
     display: flex;
@@ -348,7 +345,6 @@ p {
     opacity: 0.75;
 }
 
-
 .row-button {
     display: flex;
     justify-content: flex-end;
@@ -362,11 +358,10 @@ p {
     background-color: #ff9533;
 }
 .completed {
-    background-color: #008E30;
+    background-color: #008e30;
     width: auto;
     height: 25px;
     margin-left: 10px;
-    
 }
 
 .canceled {
@@ -379,7 +374,7 @@ p {
 }
 
 h2 {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
@@ -388,7 +383,7 @@ h2 {
 }
 
 h3 {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
@@ -397,7 +392,7 @@ h3 {
 }
 
 h5 {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -407,13 +402,12 @@ h5 {
 }
 
 td {
-    font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 13px;
-line-height: 20px;
-/* identical to box height */
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    /* identical to box height */
 
-
-color: #000000;
+    color: #000000;
 }

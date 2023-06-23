@@ -1,9 +1,15 @@
 <?php
-    session_start();
-    if(isset($_SESSION['UserID']))
+    
+    if(isset($_COOKIE['UserID']))
     {
-        header("LOCATION: http://localhost/printex/customer-order/customer-order.php");
+        session_start();
+        $_SESSION['UserID'] = $_COOKIE['UserID'];
+        if(isset($_SESSION['UserID']))
+        {
+            header("LOCATION: http://localhost/printex/customer-order/customer-order.php");
+        }
     }
+    
 ?>
 
 

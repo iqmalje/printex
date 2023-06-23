@@ -9,7 +9,7 @@
     $resultOrder = mysqli_query($conn, $sqlOrder);
     $rowOrder = mysqli_fetch_assoc($resultOrder);
 
-    $sqlUser = "SELECT ac.profilePic, ac.phoneNo,ac.fullname, ac.email, ad.address1, ad.address2, ad.postcode, ad.state
+    $sqlUser = "SELECT ac.UserID, ac.profilePic, ac.phoneNo,ac.fullname, ac.email, ad.address1, ad.address2, ad.postcode, ad.state
                 FROM accounts ac JOIN addresses ad ON (ac.UserID = ad.UserId) WHERE ac.UserID=$rowOrder[UserID]";
 
     $resultUser = mysqli_query($conn, $sqlUser);
@@ -19,6 +19,7 @@
     $resultFile = mysqli_query($conn, $sqlFile);
     $rowFile = mysqli_fetch_assoc($resultFile);
 
+    
 
 ?>
 
@@ -41,7 +42,7 @@
                         <p>Fikri Akmal Aizuddin Bin Bahrim</p>
                     </div>
                     <hr style="margin-top: 33px; margin-bottom: 10px" />
-                    <div class="item orderlist">
+                    <div class="item orderlist" onclick="window.location.href='http:/\/localhost/printex/order_pages/orderpage.php'">
                         <img
                             class="icon"
                             src="../images/icon-box.png"
@@ -54,20 +55,8 @@
                         />
                         <p>Order list</p>
                     </div>
-                    <div class="item tracking">
-                        <img
-                            class="icon"
-                            src="../images/icon-pin.png"
-                            style="
-                                width: 30px;
-                                height: 30px;
-                                margin: 0px;
-                                margin-right: 20px;
-                            "
-                        />
-                        <p>Tracking</p>
-                    </div>
-                    <div class="item history">
+                    
+                    <div class="item history" onclick="window.location.href = 'http:/\/localhost/printex/SP_history/sphistory.php'">
                         <img
                             class="icon"
                             src="../images/icon-clock.png"
@@ -80,7 +69,7 @@
                         />
                         <p>History</p>
                     </div>
-                    <div class="item settings">
+                    <div class="item settings" onclick="window.location.href='http:/\/localhost/printex/SP%20Settings/SP%20settings.php'">
                         <img
                             class="icon"
                             src="../images/icon-settings.png"
@@ -93,7 +82,9 @@
                         />
                         <p>Settings</p>
                     </div>
-                    <p class="redirect-home">Return to home</p>
+                    <a href="http://localhost/printex/customer-order/customer-order.php">
+                        <p class="redirect-home">Return to home</p>
+                    </a>
                 </div>
             </div>
             <div class="main">
@@ -172,149 +163,184 @@
                                     </button>
                                 </div>
                                 <div class="information-row">
-                                    <div class="column">
-                                        <table>
+                                <div class="column">
+                                        <table class="table-info">
                                             <tr>
-                                                <td>Location</td>
+                                                <td><b>Location</b></td>
                                                 <td>
-                                                <?= "$rowUser[address1] $rowUser[address2] $rowUser[postcode] $rowUser[state]" ?>
+                                                    
+                                                <?php
+                                                    $sqladdress = "SELECT * FROM addresses WHERE UserID=$rowUser[UserID]";
+                                                    $resultaddress = mysqli_query($conn, $sqladdress);
+
+                                                    $rowaddress = mysqli_fetch_assoc($resultaddress);
+
+                                                    echo "$rowaddress[address1] $rowaddress[address2] $rowaddress[postcode] $rowaddress[state] ";
+                                                ?>
+                                                   
+                                                
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Order ID</b></td>
+                                                <td>
+                                                    <?= $rowOrder['OrderID']?> 
                                                     
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Order ID</td>
-                                                <td><?= $rowOrder['OrderID'] ?></td>
+                                                <td><b>Delivery Date</b></td>
+                                                <td>
+                                                    <?= $rowOrder['deliveryDate']?> 
+                                                    
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Delivery Date</td>
-                                                <td><?= $rowOrder['deliveryDate'] ?></td>
+                                                <td><b>Delivery Time</b></td>
+                                                <td>
+                                                     <?= $rowOrder['deliveryTime']?> 
+                                            
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Delivery Time</td>
-                                                <td><?= $rowOrder['deliveryTime'] ?></td>
+                                                <td><b>Delivery Type</b></td>
+                                                <td>
+                                                    <?php 
+                                                        if($rowOrder['typeOfDelivery'] == 'walkin') echo 'Walk-in';
+                                                        else echo 'Deliver';
+                                                        ?> 
+                                                    
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Delivery Type</td>
-                                                <td><?php
-                                                    if($rowOrder['typeOfDelivery'] == 'walkin')
-                                                        echo 'Walk-In';
-                                                    else
-                                                        echo 'Delivery';
-                                                ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Price</td>
-                                                <td>RM <?= number_format((float)$rowOrder['price'], 2, '.', ''); ?></td>
+                                                <td><b>Price</b></td>
+                                                <td>
+                                                    RM 
+                                                     <?=
+                                                                                                number_format((float)$rowOrder['price'], 2, '.', '');
+                                                                                                
+                                                                                            
+                                                                                            ?> 
+                                                </td>
                                             </tr>
                                         </table>
-                                        <div class="time-row" style="margin-top: 30px; margin-bottom: 10px">
-                                            Estimated Delivery Time
-                                            <form action="update_delivered.php" method="post" style="display: flex;">
-                                            <input
-                                                type="time"
-                                                name="deliveredTime"
-                                                class="estimated-time"
-                                                value="<?php
-                                                    if($rowOrder['deliveredTime'] != null)
-                                                    {
-                                                        echo $rowOrder['deliveredTime'];
-                                                    }
-                                                    else echo '';
-                                                ?>"
-                                                id="estimated-time"
-                                            />
-                                            <input type="hidden" name="OrderID" value="<?= $OrderID ?>">
-                                          
-
-                                            <input type="submit" value="Update" class="deliver-button">
+                                        <div class="update-order">
+                                            <form action="update-order.php" method="POST">
+                                                <input type="hidden" name="OrderID" value="<?= $OrderID ?>">
+                                                <div class="hide-if-updated" style="display: <?= $rowOrder['deliveredTime'] == null ? 'block' : 'none' ?>;">
+                                                    <br />
+                                                    Estimated delivery time
+                                                    <br />
+                                                    <div class="update-time-row">
+                                                        <input
+                                                            type="time"
+                                                            name="deliveredTime"
+                                                            style="
+                                                                width: 65%;
+                                                                height: 2.5rem;
+                                                                border-radius: 5px;
+                                                                border: 1px solid
+                                                                    black;
+                                                                text-align: center;
+                                                            "
+                                                            value=""
+                                                        />
+                                                        <input
+                                                            type="submit"
+                                                            value="Update"
+                                                            class="update-time"
+                                                            name="updateTime"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <br />
+                                                <input
+                                                    type="text"
+                                                    name=""
+                                                    id=""
+                                                    style="
+                                                        width: 98%;
+                                                        height: 3rem;
+                                                    "
+                                                    placeholder="Drop any message to your customer"
+                                                />
+                                                <br />
+                                                <br />
+                                                <div class="hide-if-completed-or-canceled" style="display:  <?= !($rowOrder['status'] == 'COMPLETED' || $rowOrder['status'] == 'CANCELLED') ? 'block' : 'none' ?>;">
+                                                    <div class="update-button-row" >
+                                                        <input
+                                                            type="submit"
+                                                            value="Cancel"
+                                                            class="update-order-button cancel"
+                                                            name="cancelOrder"
+                                                        />
+                                                        <input
+                                                            type="submit"
+                                                            class="update-order-button"
+                                                            value="Complete"
+                                                            name="completeOrder"
+                                                        />
+                                                    </div>
+                                                </div>
                                             </form>
-                                            
                                         </div>
-                                        <textarea
-                                            name=""
-                                            id=""
-                                            placeholder="Drop any message to your customer"
-                                        ></textarea>
-
-                                        <?php
-                                            if(!($rowOrder['status'] == 'COMPLETED' || $rowOrder['status'] == 'CANCELLED'))
-                                            {
-                                                echo "
-                                                <div class='row-button'>
-                                            <button class='cancel'
-                                            
-                                            onclick='window.location.href = 'http:/\/localhost/printex/order_pages/orderpage_all.php''>
-                                                Cancel
-                                            </button>
-                                            <form action='update_completed.php' method='post'>
-                                                <input type='hidden' name='OrderID' value='<?=$OrderID ?>'>
-                                                <input type='submit' value='' style='display:none;' id='submitcompleted'>
-                                            </form>
-                                            <button class='complete' onclick='document.getElementById('submitcompleted').click()'>
-                                                Complete
-                                            </button>
-                                        </div>
-                                                
-                                                ";
-                                            }
-
-                                        ?>
-                                        
                                     </div>
-
+                                            
                                     <div class="file-details">
                                         <div class="file-information">
                                             <div class="file-row">
                                                 File name:
-                                                <b> <?= $rowFile['filename'] ?></b>
-                                            </div>
-                                            
-                                            <div class="file-row">
-                                                Color:
-                                                <b> <?php 
-                                                    if($rowOrder['color'] == 'BW')
-                                                        echo "Black & White";
-                                                    else 
-                                                        echo "Color";
-                                                ?></b>
+                                                <b><?= $rowFile['filename'] ?></b>
                                             </div>
                                             <div class="file-row">
-                                                Printing side: 
-                                                <b><?= $rowOrder['side'] ?></b>
+                                                Color: <b><?= $rowOrder['color'] == 'BW' ? 'Black & White' : 'Color' ?></b>
                                             </div>
                                             <div class="file-row">
-                                                Page per sheet: 
-                                                <b> <?= $rowOrder['pagepersheet'] ?></b>
+                                                Printing side: <b><?= $rowOrder['side'] ?></b>
                                             </div>
                                             <div class="file-row">
-                                                Printing layout: 
-                                                <b> <?= $rowOrder['layout'] ?></b>
+                                                Page per sheet:
+                                                <b><?= $rowOrder['pagepersheet'] ?></b>
                                             </div>
                                             <div class="file-row">
-                                                Paper size: <b> <?= $rowOrder['paperSize'] ?></b>
+                                                Printing layout:
+                                                <b><?= $rowOrder['layout'] ?></b>
                                             </div>
                                             <div class="file-row">
-                                                Copies: <b> <?= $rowOrder['copies'] ?></b>
+                                                Paper size: <b><?= $rowOrder['paperSize'] ?></b>
                                             </div>
                                             <div class="file-row">
-                                                Number of pages: <b> <?= $rowFile['totalPage'] ?></b>
+                                                Copies: <b><?= $rowOrder['copies'] ?></b>
+                                            </div>
+                                            <div class="file-row">
+                                                Number of pages: <b><?= $rowFile['totalPage'] ?></b>
                                             </div>
                                         </div>
-
                                         <div class="print-menu">
-                                            <div class="menu-row">
+                                            <div class="print-menu-row">
                                                 <img
                                                     src="../images/printer-logo.png"
-                                                    alt=""
+                                                    alt="printer-logo"
                                                     srcset=""
                                                 />
-                                                <h2>Auto-Print</h2>
+                                                <h3>Auto-Print</h3>
                                             </div>
-                                            <div class="button-column">
-                                                <button>Print (B&W)</button>
-                                                <button>Print (Color)</button>
-                                                <button>Only Print</button>
-                                            </div>
+                                            <br />
+                                            <button
+                                                class="print-menu-button"
+                                            >
+                                                Print (B&amp;W)</button
+                                            ><br />
+                                            <button
+                                                class="print-menu-button"
+                                            >
+                                                Print (Color)</button
+                                            ><br />
+                                            <button
+                                                class="print-menu-button"
+                                            >
+                                                Only Print
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -341,3 +367,4 @@
         </script>
     </body>
 </html>
+1

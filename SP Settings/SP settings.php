@@ -35,7 +35,7 @@
                         <p id="fullname"><?= $row['fullname']?></p>
                     </div>
                     <hr style="margin-top: 33px; margin-bottom: 10px" />
-                    <div class="item orderlist">
+                    <div class="item orderlist" onclick="window.location.href='http:/\/localhost/printex/order_pages/orderpage.php'">
                         <img
                             class="icon"
                             src="../images/icon-box.png"
@@ -49,21 +49,8 @@
                         />
                         <p>Order list</p>
                     </div>
-                    <div class="item tracking">
-                        <img
-                            class="icon"
-                            src="../images/icon-pin.png"
-                            style="
-                                width: 30px;
-                                height: 30px;
-                                margin: 0px;
-                                margin-right: 20px;
-                            "
-                            alt="icon-pin"
-                        />
-                        <p>Tracking</p>
-                    </div>
-                    <div class="item history">
+                    
+                    <div class="item history" onclick="window.location.href = 'http:/\/localhost/printex/SP_history/sphistory.php'">
                         <img
                             class="icon"
                             src="../images/icon-clock.png"
@@ -77,7 +64,7 @@
                         />
                         <p>History</p>
                     </div>
-                    <div class="item settings">
+                    <div class="item settings" onclick="window.location.href='http:/\/localhost/printex/SP%20Settings/SP%20settings.php'">
                         <img
                             class="icon"
                             src="../images/icon-settings.png"

@@ -11,6 +11,11 @@
     $sql = "SELECT sp.SPID, ac.profilePic, ac.fullname, sp.BWprice, sp.colorPrice FROM accounts ac JOIN SPInfos sp ON (ac.UserID=sp.UserID)";
     $resultSPs = mysqli_query($conn, $sql);
     $selectedSPID = 0;
+    //determine if the user is SP or not
+
+    $sql = "SELECT SPID FROM SPInfos WHERE UserID=$UserID";
+    $SPResult = mysqli_query($conn, $sql);
+    $SPUSER = mysqli_fetch_assoc($SPResult);
 ?>
 
 <!DOCTYPE html>
@@ -34,8 +39,26 @@
         <a href="index.html"><img src="../images/logo.png" alt="PrinTEX_logo" class="logo"></a>
         <nav>
             <ul>
-                <li><button type="becomePrinTEXer" class="becomePrinTEXer">Become PrinTEXer</button></li>
-                <li><img src="../images/profile.png" alt="Profile_icon" class="profile"></li>
+                <li>
+                    <form action="../order_pages/orderpage.php" method="post">
+                        <input type="hidden" name="SPID" value= "<?= $SPUSER['SPID']?>" />
+                        <input type="submit"  value="Go to dashboard" class="becomePrinTEXer" >
+
+                      
+                
+                    </form>
+                    <?php 
+                        if(mysqli_num_rows($SPResult) > 0)
+                        {
+                            echo "
+                                
+                            ";
+
+                        }
+                    ?>
+                </li>
+                    
+                <li><img src="..<?= $rowProfile['profilePic'] ?>" style="clip-path: circle();" alt="Profile_icon" class="profile"></li>
             </ul>
         </nav>
     </div>
