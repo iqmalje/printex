@@ -30,26 +30,25 @@
     <hr>
 
     <div class="grid-container">
-        <div class="grid-item a1">
+        <div class="grid-item a1"  onclick="window.location.href='http:/\/localhost/printex/customer-order/customer-order.php'">
             <div class="content">
                 <img src="../images/grid-order.png" alt="Icon_order" class="grid-icon">
                 <p class="grid-text">Order</p>
             </div>
         </div>
-        <div class="grid-item a2">
+        <div class="grid-item a2 selected">
             <div class="content">
                 <img src="../images/grid-tracking.png" alt="Icon_tracking" class="grid-icon">
                 <p class="grid-text">Tracking</p>
             </div>
         </div>
-        <div class="grid-item a3">
+        <div class="grid-item a3" onclick="window.location.href='http:/\/localhost/printex/customer-history/aa.php'">
             <div class="content">
                 <img src="../images/grid-history.png" alt="Icon_history" class="grid-icon">
                 <p class="grid-text">History</p>
             </div>
         </div>
     </div>
-
     <div>
         <hr>
     </div>

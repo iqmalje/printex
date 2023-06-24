@@ -93,7 +93,7 @@
                     <p class="grid-text">Tracking</p>
                 </div>
             </div>
-            <div class="grid-item a3">
+            <div class="grid-item a3" onclick="window.location.href = 'http:/\/localhost/printex/customer-history/chistory.php'">
                 <div class="content">
                     <img
                         src="../images/grid-history.png"

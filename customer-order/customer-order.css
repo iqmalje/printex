@@ -86,6 +86,10 @@ nav ul li {
     text-align: center;
 }
 
+.grid-item:hover {
+    background-color: #1957ab;
+}
+
 .content {
     display: flex;
     flex-direction: column;

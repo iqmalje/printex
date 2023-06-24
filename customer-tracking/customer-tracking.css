@@ -76,11 +76,20 @@ nav ul li {
 .grid-item {
     height: 120px;
     width: 120px;
-    background: #1957ab;
+    background: #d9d9d9;
     border-radius: 15px;
     display: flex;
+    cursor: pointer;
     justify-content: center;
     text-align: center;
+}
+
+.grid-item:hover {
+    background-color: #1957ab;
+}
+
+.selected {
+    background-color: #1957ab;
 }
 
 .content {

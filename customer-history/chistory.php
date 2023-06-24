@@ -45,20 +45,20 @@
 
     <hr>
 
-    <div class="grid-container">
-        <div class="grid-item a1">
+    <div class="grid-container" >
+        <div class="grid-item a1" onclick="window.location.href='http:/\/localhost/printex/customer-order/customer-order.php'">
             <div class="content">
                 <img src="../images/grid-order.png" alt="Icon_order" class="grid-icon">
                 <p class="grid-text">Order</p>
             </div>
         </div>
-        <div class="grid-item a2">
+        <div class="grid-item a2" onclick="window.location.href='http:/\/localhost/printex/customer-tracking/customer-tracking.php'">
             <div class="content">
                 <img src="../images/grid-tracking.png" alt="Icon_tracking" class="grid-icon">
                 <p class="grid-text">Tracking</p>
             </div>
         </div>
-        <div class="grid-item a3 selected">
+        <div class="grid-item a3 selected" onclick="window.location.href='http:/\/localhost/printex/customer-history/chistory.php'">
             <div class="content">
                 <img src="../images/grid-history.png" alt="Icon_history" class="grid-icon">
                 <p class="grid-text">History</p>
@@ -109,12 +109,17 @@
                                 if($rowOrder['typeOfDelivery'] == 'walkin') $typeofdelivery = 'Walk-in';
                     echo "
                         <tr class='table-row'>
-                        <td>AK0011</td>
+                        <td>$rowOrder[OrderID]</td>
                         <td>$shorten</td>
                         <td>$typeofdelivery</td>
                         <td>$rowSP[address1] $rowSP[address2] $rowSP[postcode] $rowSP[state]</td>
                         <td>RM$price</td>
-                        <td>$rowOrder[deliveryDate]</td>";
+                        <td>$rowOrder[deliveryDate]</td>
+                        <form action='chistorydetails.php' method='POST'>
+                            <input type='hidden' name='OrderID' value='$rowOrder[OrderID]' />
+                            <input type='submit' id='submit' style='display: none;' />
+                        </form>
+                        ";
 
                         if($rowOrder['status'] == 'COMPLETED')
                             echo "
@@ -124,7 +129,7 @@
                                     Successful        
                                 </div>
                             </td>
-                            <td style='width: 7%;'><img src='../images/Near me.png' alt='View details' class='viewdetails'></td>
+                            <td style='width: 7%;'><img src='../images/Near me.png' alt='View details' class='viewdetails' onclick='document.getElementById(\"submit\").click()'></td>
                         </tr>
                         ";
                         else
@@ -135,7 +140,7 @@
                                     Cancelled      
                                 </div>
                             </td>
-                            <td style='width: 7%;'><img src='../images/Near me.png' alt='View details' class='viewdetails'></td>
+                            <td style='width: 7%;'><img src='../images/Near me.png' alt='View details' class='viewdetails' onclick='document.getElementById(\"submit\").click()'></td>
                         </tr>
                         ";
 
