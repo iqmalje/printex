@@ -5,6 +5,11 @@
 
     $UserID = $_SESSION['UserID'];
 
+    $sql = "SELECT profilePic from accounts where UserID=$UserID";
+
+    $result = mysqli_query($conn, $sql);
+    $profilepic = mysqli_fetch_assoc($result)['profilePic'];
+
 
 ?>
 
@@ -20,9 +25,18 @@
     <div class="navitem">
         <a href="index.html"><img src="../images/logo.png" alt="PrinTEX_logo" class="logo"></a>
         <nav>
-            <ul>
-                <li><button type="becomePrinTEXer" class="becomePrinTEXer">Become PrinTEXer</button></li>
-                <li><img src="../images/profile.png" alt="Profile_icon" class="profile"></li>
+        <ul>
+                <?php
+
+                    $sql = "SELECT * FROM SPInfos WHERE UserID=$UserID";
+                    $result = mysqli_query($conn,$sql);
+                    if(mysqli_num_rows($result) > 0) 
+                        echo "<button type='becomePrinTEXer' onclick='window.location.href = \"http://localhost/printex/order_pages/orderpage.php\"' class='becomePrinTEXer'>Go to dashboard</button>";
+                    else 
+                        echo "<button type='becomePrinTEXer' onclick='window.location.href = \"http://localhost/printex/SP Settings/SP settings - Service.php\"' class='becomePrinTEXer'>Become PrinTEXer</button>";
+
+                ?>
+                <li><img src="..<?= $profilepic ?>" alt="Profile_icon" class="profile" style="clip-path: circle()"></li>
             </ul>
         </nav>
     </div>
