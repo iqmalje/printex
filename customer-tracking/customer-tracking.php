@@ -93,7 +93,7 @@
             </tr>
 
             <?php
-                $sql = "SELECT o.OrderID, ac.fullname, o.deliveryDate, o.price, o.status, o.created_at FROM Orders o JOIN accounts ac ON (o.UserID=ac.UserID) WHERE o.UserID=$UserID";
+                $sql = "SELECT o.SPID, o.OrderID, ac.fullname, o.deliveryDate, o.price, o.status, o.created_at FROM Orders o JOIN accounts ac ON (o.UserID=ac.UserID) WHERE o.UserID=$UserID";
 
                 $resultOrders = mysqli_query($conn, $sql);
 
@@ -101,12 +101,15 @@
                 {  
                     $price = number_format((float)$rowOrder['price'], 2, '.', '');
                     $orderdate = explode(' ', $rowOrder['created_at'])[0];
+                    $sql = "SELECT ac.fullname FROM SPInfos sp JOIN accounts ac ON (ac.UserID=sp.UserID) WHERE SPID=$rowOrder[SPID]";
+                    $result = mysqli_query($conn, $sql);
+                    $spname = mysqli_fetch_assoc($result)['fullname'];
                     switch ($rowOrder['status']){
                         case 'PREPARING':
                             echo "
                                 <tr class='table-row'>
                                     <td>$rowOrder[OrderID]</td>
-                                    <td>$rowOrder[fullname]</td>
+                                    <td>$spname</td>
                                     <td>$orderdate</td>
                                     <td>$rowOrder[deliveryDate]</td>
                                     <td>RM$price</td>
@@ -125,7 +128,7 @@
                             echo "
                                 <tr class='table-row'>
                                     <td>$rowOrder[OrderID]</td>
-                                    <td>$rowOrder[fullname]</td>
+                                    <td>$spname</td>
                                     <td>12.04.2023</td>
                                     <td>$rowOrder[deliveryDate]</td>
                                     <td>RM$price</td>
@@ -144,7 +147,7 @@
                             echo "
                                 <tr class='table-row'>
                                     <td>$rowOrder[OrderID]</td>
-                                    <td>$rowOrder[fullname]</td>
+                                    <td>$spname</td>
                                     <td>12.04.2023</td>
                                     <td>$rowOrder[deliveryDate]</td>
                                     <td>RM$price</td>
@@ -161,7 +164,7 @@
                             echo "
                                 <tr class='table-row'>
                                     <td>$rowOrder[OrderID]</td>
-                                    <td>$rowOrder[fullname]</td>
+                                    <td>$spname</td>
                                     <td>12.04.2023</td>
                                     <td>$rowOrder[deliveryDate]</td>
                                     <td>RM$price</td>
@@ -180,7 +183,7 @@
                             echo "
                                 <tr class='table-row'>
                                     <td>$rowOrder[OrderID]</td>
-                                    <td>$rowOrder[fullname]</td>
+                                    <td>$spname</td>
                                     <td>12.04.2023</td>
                                     <td>$rowOrder[deliveryDate]</td>
                                     <td>RM$price</td>
