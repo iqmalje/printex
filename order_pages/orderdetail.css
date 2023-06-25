@@ -51,6 +51,7 @@ body {
 }
 
 .sidebar {
+    position: fixed;
     width: 23%;
     height: 100%;
     margin: 0px;
@@ -78,7 +79,7 @@ body {
 .main {
     width: 77%;
     height: 100%;
-    margin: 0px;
+    margin-left: 23%;
 }
 
 .userprofile {
