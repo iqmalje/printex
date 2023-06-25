@@ -32,7 +32,10 @@
     <form action="../customer-order/customer-order.php" method="post">
         <input type="hidden" id="selectedSP" name="SPID" value="">
         <input type="hidden" id="typeOfDelivery" name="typeOfDelivery" />
+        <input type="hidden" id="deliveryDate" name="deliveryDate" />
+        <input type="hidden" id="deliveryTime" name="deliveryTime">
         <input type="submit" style="display:none;" id="submit" value="<?= $selectedSPID ?>">
+    </form>
         
     
     <div class="navitem">
@@ -82,12 +85,12 @@
 
         <div class="box-deliverydate">
             <p class="deliverytypetext">Date of Delivery</p>
-            <input type="date" class="dateselect" name="deliveryDate">
+            <input type="date" class="dateselect" id="dateselect" name="deliveryDate">
         </div>
 
         <div class="box-deliverytime">
             <p class="deliverytypetext">Time of Delivery</p>
-            <input type="time" class="timeselect" name="deliveryTime">
+            <input type="time" class="timeselect" id="timeselect" name="deliveryTime">
         </div>
         </form>
         <div class="box-deliverylocation">

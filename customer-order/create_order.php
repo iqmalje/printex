@@ -56,5 +56,7 @@
 
     mysqli_query($conn, $sql);
 
+    header("LOCATION: http://localhost/printex/customer-tracking/customer-tracking.php");
+
 
 ?>

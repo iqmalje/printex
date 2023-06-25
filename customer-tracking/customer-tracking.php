@@ -56,7 +56,7 @@
                 <p class="grid-text">Tracking</p>
             </div>
         </div>
-        <div class="grid-item a3" onclick="window.location.href='http:/\/localhost/printex/customer-history/aa.php'">
+        <div class="grid-item a3" onclick="window.location.href='http:/\/localhost/printex/customer-history/chistory.php'">
             <div class="content">
                 <img src="../images/grid-history.png" alt="Icon_history" class="grid-icon">
                 <p class="grid-text">History</p>
@@ -93,20 +93,21 @@
             </tr>
 
             <?php
-                $sql = "SELECT o.OrderID, ac.fullname, o.deliveryDate, o.price, o.status FROM Orders o JOIN accounts ac ON (o.UserID=ac.UserID) WHERE o.UserID=$UserID";
+                $sql = "SELECT o.OrderID, ac.fullname, o.deliveryDate, o.price, o.status, o.created_at FROM Orders o JOIN accounts ac ON (o.UserID=ac.UserID) WHERE o.UserID=$UserID";
 
                 $resultOrders = mysqli_query($conn, $sql);
 
                 while($rowOrder = mysqli_fetch_assoc($resultOrders))
                 {  
                     $price = number_format((float)$rowOrder['price'], 2, '.', '');
+                    $orderdate = explode(' ', $rowOrder['created_at'])[0];
                     switch ($rowOrder['status']){
                         case 'PREPARING':
                             echo "
                                 <tr class='table-row'>
                                     <td>$rowOrder[OrderID]</td>
                                     <td>$rowOrder[fullname]</td>
-                                    <td>12.04.2023</td>
+                                    <td>$orderdate</td>
                                     <td>$rowOrder[deliveryDate]</td>
                                     <td>RM$price</td>
                                     <td>

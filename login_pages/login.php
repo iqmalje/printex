@@ -1,14 +1,16 @@
 <?php
     
-    if(isset($_COOKIE['UserID']))
+    
+    
+    
+    session_start();
+   
+    if(isset($_SESSION['UserID']))
     {
-        session_start();
-        $_SESSION['UserID'] = $_COOKIE['UserID'];
-        if(isset($_SESSION['UserID']))
-        {
-            header("LOCATION: http://localhost/printex/customer-order/customer-order.php");
-        }
+        header("LOCATION: http://localhost/printex/customer-order/customer-order.php");
     }
+
+    
     
 ?>
 
@@ -48,7 +50,7 @@
                     />
                     <p class="forgotpassword">forgot password?</p>
                     <input type="submit" value="Log in" class="login" />
-                    <p class="signup">Don't have an account? <b>SIGN UP</b></p>
+                    <p class="signup" onclick="window.location.href='http:/\/localhost/printex/register_login_pages/register.html'">Don't have an account? <b>SIGN UP</b></p>
                 </form>
             </div>
         </div>

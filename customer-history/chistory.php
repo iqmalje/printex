@@ -114,7 +114,7 @@
                         <td>$typeofdelivery</td>
                         <td>$rowSP[address1] $rowSP[address2] $rowSP[postcode] $rowSP[state]</td>
                         <td>RM$price</td>
-                        <td>$rowOrder[deliveryDate]</td>
+                        <td>$rowOrder[created_at]</td>
                         <form action='chistorydetails.php' method='POST'>
                             <input type='hidden' name='OrderID' value='$rowOrder[OrderID]' />
                             <input type='submit' id='submit' style='display: none;' />

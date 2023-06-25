@@ -1,5 +1,10 @@
 function selectSP(SPID) {
-    console.log(SPID);
+    alert(SPID);
+    document.getElementById("deliveryDate").value =
+        document.getElementById("dateselect").value;
+    document.getElementById("deliveryTime").value =
+        document.getElementById("timeselect").value;
+
     document.getElementById("selectedSP").value = SPID;
     document.getElementById("submit").click();
 }

@@ -26,6 +26,11 @@
     $sql = "SELECT * FROM Files WHERE FileID = $rowOrder[FileID]";
     $resultFile = mysqli_query($conn, $sql);
     $rowFile = mysqli_fetch_assoc($resultFile);
+
+    //get order created
+    $orderCreatedDate = explode(' ', $rowOrder['created_at'])[0];
+    $orderCreatedTime = explode(' ', $rowOrder['created_at'])[1];
+    
 ?>
 
 <!DOCTYPE html>
@@ -200,11 +205,11 @@
                                             </tr>
                                             <tr style="height: 30px">
                                                 <td><b>Order Date</b></td>
-                                                <td><?= $rowOrder['deliveryDate'] ?></td>
+                                                <td><?= $orderCreatedDate ?></td>
                                             </tr>
                                             <tr style="height: 30px">
                                                 <td><b>Order Time</b></td>
-                                                <td><?= $rowOrder['deliveryTime'] ?>.</td>
+                                                <td><?= $orderCreatedTime ?>.</td>
                                             </tr>
                                             <tr style="height: 30px">
                                                 <td><b>Delivery Date</b></td>

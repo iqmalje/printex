@@ -12,8 +12,9 @@
 
     if(isset($_POST['SPID'])){
         $spid = $_POST['SPID'];
-        echo $_POST['deliveryDate'];
     }
+
+    
 
     
 

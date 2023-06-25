@@ -48,7 +48,9 @@
             mysqli_query($conn, $sql);
     
             echo "Succesfully registered!";
-            header("location: http://localhost/printex/login_pages/login.html");
+            //unset all coookies
+            unset($_COOKIE['UserID']);
+            header("location: http://localhost/printex/login_pages/login.php");
         }
     }
 

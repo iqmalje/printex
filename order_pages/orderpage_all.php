@@ -142,12 +142,13 @@
                                 $SPID = mysqli_fetch_assoc($resultSPID)['SPID'];
 
                                 //FETCH ORDERS (PENDING ONLY)
-                                $sqlOrders = "SELECT o.OrderID, o.status, ac.fullname, o.price FROM Orders o JOIN accounts ac ON (ac.UserID=o.UserID) WHERE SPID=$SPID";
+                                $sqlOrders = "SELECT o.OrderID, o.status, ac.fullname, o.price, o.created_at FROM Orders o JOIN accounts ac ON (ac.UserID=o.UserID) WHERE SPID=$SPID";
                                 $resultOrders = mysqli_query($conn, $sqlOrders);
                                 while($rowOrders = mysqli_fetch_assoc($resultOrders))
                                 {
 
                                     $price = number_format((float)$rowOrders['price'], 2, '.', '');
+                                    $orderdate = explode(' ', $rowOrders['created_at'])[0];
 
                                     if($rowOrders['status'] == "PREPARING")
                                     {
@@ -158,7 +159,7 @@
                                             <td>$rowOrders[fullname]</td>
                                             <td>Walk-in</td>
                                             <td>RM$price</td>
-                                            <td>12.04.2023</td>
+                                            <td>$orderdate</td>
                                             <td>12.04.2023</td>
                                             <td>
                                                 <div class='row'>

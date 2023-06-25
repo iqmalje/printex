@@ -23,7 +23,8 @@
         
         // this will set the cookie expiration in 7 days
 
-        setcookie("UserID", $UserID, strtotime("+7 days"));
+        //setcookie("UserID", $UserID, strtotime("+7 days"));
+        //setcookie("UserID", '', time() - 1000, 1);
         session_start();
 
 
