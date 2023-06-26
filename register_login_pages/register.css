@@ -68,7 +68,8 @@ form {
 }
 
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="number"] {
     background-color: #f0efef;
     border-radius: 10px;
     margin: 0;
@@ -77,6 +78,14 @@ input[type="password"] {
     height: 40px;
 
     border: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }
 
 input[type="button"] {

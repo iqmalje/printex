@@ -34,6 +34,7 @@
                         name="profilepic"
                         style="display: none"
                         onchange="updateImagePath(this)"
+                        accept="image/png, image/jpg, image/jpeg"
                     />
                     <div class="section">
                         <p>Name</p>
@@ -48,11 +49,12 @@
                             <div class="phonenumber" style="width: 36%">
                                 <p>Phone Number</p>
                                 <input
-                                    type="text"
+                                    type="number"
                                     required
                                     name="phonenumber"
                                     placeholder="0105374842"
                                     id="phonenumber"
+                                    onchange="phoneFormat()"
                                 />
                             </div>
                             <div class="email" style="width: 59%">
@@ -63,6 +65,7 @@
                                     name="email"
                                     placeholder="example@email.com"
                                     id="email"
+                                    onchange="emailVerifier()"
                                 />
                             </div>
                         </div>

@@ -38,3 +38,30 @@ function updateImagePath(element) {
 function selectPicture() {
     document.getElementById("selectfile").click();
 }
+
+function phoneFormat() {
+    var phonelement = document.getElementById("phonenumber");
+    var value = phonelement.value;
+
+    if (value[0] != "0") {
+        alert("Your phone number must start with 0");
+        phonelement.value = "";
+    }
+    if (value.length != 10 && value.length != 11) {
+        alert("Your phone number must either be 10 or 11 digits!");
+        phonelement.value = "";
+    }
+}
+
+function emailVerifier() {
+    var emailelement = document.getElementById("email");
+    var matchedstring = emailelement.value.match(
+        /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
+    );
+
+    if (matchedstring == null) {
+        alert("Incorrect email format! Please try again");
+        emailelement.value = "";
+    } else {
+    }
+}
