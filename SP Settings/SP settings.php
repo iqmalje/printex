@@ -121,10 +121,11 @@
                     <div class="content-section">
                         <div class="userprofile-content">
                             <img
-                                src="../images/profile/Ellipse%201.png"
+                                src="..<?= $row['profilePic'] ?>"
                                 alt="Ellipse%201"
                                 width="125"
                                 height="125"
+                                style="clip-path: circle()"
                             />
                         </div>
                         <div class="table-section">

@@ -314,7 +314,7 @@
                             <div class='chooseSP'>
                         <form action='../SPlist_pages/SPlist-order.php' method='post'>
                             <input type='hidden' name='UserID' value='<?= $UserID ?>'>
-                            <input type='submit' value='' id='chooseSP'>
+                            <input type='submit' value='' id='chooseSP' style='display:none;'>
                         </form>
                         <button type='button' class='deliveryinfobtn' onclick='redirectToSPLIST()'>
                             Click here to choose a PrinTEXer to perform your order

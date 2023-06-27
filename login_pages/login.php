@@ -7,6 +7,13 @@
    
     if(isset($_SESSION['UserID']))
     {
+
+        header("LOCATION: http://localhost/printex/customer-order/customer-order.php");
+    }
+    else if (isset($_COOKIE['UserID']))
+    {
+
+        $_SESSION['UserID'] = $_COOKIE['UserID'];
         header("LOCATION: http://localhost/printex/customer-order/customer-order.php");
     }
 
